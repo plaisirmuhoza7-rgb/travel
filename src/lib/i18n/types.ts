@@ -146,6 +146,7 @@ export interface Dictionary {
       }[];
       bookNow: string;
       exploreStory: string;
+      ourServices: string;
       imageAlt: string;
       skyTag: string;
       standardEyebrow: string;
@@ -834,33 +835,14 @@ export interface Dictionary {
     login: {
       portalTitle: string;
       portalSubtitle: string;
-      portalBadge: string;
       backToSite: string;
-      showcaseEyebrow: string;
-      showcaseTag: string;
-      showcaseTitleLine1: string;
-      showcaseTitleLine2: string;
-      showcaseSubtitle: string;
-      showcaseImageAlt: string;
-      showcaseHighlights: {
-        label: string;
-        detail: string;
-      }[];
-      testModeBadge: string;
-      testModeDescription: string;
-      fillDemoBtn: string;
       staffEmail: string;
       emailPlaceholder: string;
       password: string;
-      passwordHint: string;
       showPassword: string;
       hidePassword: string;
-      sessionNote: string;
-      needHelp: string;
       authenticating: string;
       signIn: string;
-      devNoteBefore: string;
-      devNoteMiddle: string;
       loginFailed: string;
       invalidCredentials: string;
     };

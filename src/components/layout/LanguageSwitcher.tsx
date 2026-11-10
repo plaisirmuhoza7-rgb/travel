@@ -172,7 +172,7 @@ export function LanguageSwitcher({
   if (variant === "darkgreen") {
     return (
       <div
-        className={`inline-flex items-center rounded-lg border border-[#10B981]/25 bg-[#ECFDF5]/70 p-0.5 shadow-2xs shrink-0 ${className}`}
+        className={`inline-flex items-center rounded-lg border border-white/15 bg-white/[0.06] p-0.5 backdrop-blur-sm shrink-0 ${className}`}
         role="group"
         aria-label={dict.nav.languageLabel}
       >
@@ -181,10 +181,10 @@ export function LanguageSwitcher({
           onClick={() => handleSelect("en")}
           aria-label={dict.nav.switchToEnglish}
           aria-pressed={locale === "en"}
-          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider transition-colors ${
             locale === "en"
-              ? "bg-[#063726] text-[#FACC15] shadow-2xs"
-              : "text-[#063726]/70 hover:text-[#042419]"
+              ? "bg-[#FACC15] text-[#042419] shadow-2xs"
+              : "text-emerald-100/75 hover:text-white"
           }`}
         >
           EN
@@ -194,10 +194,10 @@ export function LanguageSwitcher({
           onClick={() => handleSelect("fr")}
           aria-label={dict.nav.switchToFrench}
           aria-pressed={locale === "fr"}
-          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider transition-colors ${
             locale === "fr"
-              ? "bg-[#063726] text-[#FACC15] shadow-2xs"
-              : "text-[#063726]/70 hover:text-[#042419]"
+              ? "bg-[#FACC15] text-[#042419] shadow-2xs"
+              : "text-emerald-100/75 hover:text-white"
           }`}
         >
           FR

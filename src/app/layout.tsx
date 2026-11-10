@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SiteChromeShell } from "@/components/layout/SiteChromeShell";
 import { JsonLdSchema } from "@/components/seo/JsonLdSchema";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -76,9 +77,9 @@ export default async function RootLayout({
       >
         <LocaleProvider initialLocale={locale}>
           <JsonLdSchema locale={locale} />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <SiteChromeShell header={<Header />} footer={<Footer />}>
+            {children}
+          </SiteChromeShell>
         </LocaleProvider>
       </body>
     </html>

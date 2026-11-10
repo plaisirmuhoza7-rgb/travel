@@ -639,27 +639,27 @@ export function AdminBookingsDashboard({
         <div className="flex flex-wrap items-center gap-2.5">
           <Link
             href="/admin/invoices"
-            className="inline-flex items-center gap-1.5 rounded border border-[#CBD5E1] bg-white px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0F284E] hover:bg-[#F7F6F2] shadow-xs transition-all"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#0F284E]/30 bg-white px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0F284E] hover:bg-[#0F284E] hover:text-white shadow-xs transition-all"
             title="Invoices & Billing Hub"
           >
-            <Receipt className="h-4 w-4 text-[#BCA77B]" />
+            <Receipt className="h-4 w-4 text-[#EAB308]" />
             <span>Invoices & Billing</span>
           </Link>
 
           <button
             onClick={() => setIsNewBookingModalOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded bg-[#0B3D2E] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#F7F6F2] hover:bg-[#06281E] shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#0B3D2E] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white hover:bg-[#06281E] shadow-sm transition-all"
           >
-            <Plus className="h-4 w-4 text-[#BCA77B]" />
+            <Plus className="h-4 w-4 text-[#FACC15]" />
             <span>{db.newBookingBtn}</span>
           </button>
 
           <button
             onClick={handleExportCsv}
-            className="inline-flex items-center gap-1.5 rounded border border-[var(--color-border-subtle)] bg-white px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0B3D2E] hover:bg-[#F7F6F2] shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#CBD5E1] bg-white px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0B3D2E] hover:bg-[#F8FAFC] shadow-xs transition-all"
             title={db.exportCsvTooltip}
           >
-            <Download className="h-3.5 w-3.5 text-[#BCA77B]" />
+            <Download className="h-3.5 w-3.5 text-[#0F284E]" />
             <span>{db.exportCsvBtn}</span>
           </button>
 
@@ -676,131 +676,101 @@ export function AdminBookingsDashboard({
         </div>
       </div>
 
-      {/* KPI Stat Cards Bar */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      {/* Crucial KPI Stat Cards Bar (Streamlined & Clean) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Card 1: Total Bookings */}
         <div
           onClick={() => setStatusFilter("all")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
+          className={`cursor-pointer rounded-xl border p-4 transition-all shadow-xs ${
             statusFilter === "all"
-              ? "border-[#0B3D2E] bg-[#0B3D2E]/5 ring-1 ring-[#0B3D2E]"
-              : "border-[var(--color-border-subtle)] bg-white hover:border-[#BCA77B]"
+              ? "border-[#0F284E] bg-[#0F284E]/5 ring-2 ring-[#0F284E]"
+              : "border-[#CBD5E1] bg-white hover:border-[#0F284E]"
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-[#171D19]/60">{db.kpis.totalBookings}</span>
-            <Calendar className="h-3.5 w-3.5 text-[#BCA77B]" />
+            <span className="text-[11px] uppercase font-bold tracking-wider text-[#64748B]">
+              {db.kpis.totalBookings}
+            </span>
+            <Calendar className="h-4 w-4 text-[#0F284E]" />
           </div>
-          <span className="font-display text-2xl font-bold text-[#0B3D2E] mt-1 block">
+          <span className="font-display text-2xl sm:text-3xl font-black text-[#0F284E] mt-1.5 block">
             {stats.total}
           </span>
-          <span className="text-[10px] text-[#171D19]/50 block mt-0.5">
-            {stats.todayPickups > 0 ? `${stats.todayPickups}${db.kpis.pickupsTodaySuffix}` : db.kpis.allLoggedRequests}
+          <span className="text-xs text-[#64748B] block mt-0.5">
+            {stats.todayPickups > 0 ? `${stats.todayPickups} ${db.kpis.pickupsTodaySuffix}` : db.kpis.allLoggedRequests}
           </span>
         </div>
 
-        <div
-          onClick={() => setStatusFilter("New")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
-            statusFilter === "New"
-              ? "border-yellow-500 bg-yellow-50 ring-1 ring-yellow-500"
-              : "border-[var(--color-border-subtle)] bg-white hover:border-yellow-400"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-yellow-900">{db.kpis.newRequests}</span>
-            {stats.newCount > 0 && (
-              <span className="flex h-2 w-2 rounded-full bg-[#FACC15] animate-ping" />
-            )}
-          </div>
-          <span className="font-display text-2xl font-bold text-yellow-800 mt-1 block">
-            {stats.newCount}
-          </span>
-          <span className="text-[10px] text-yellow-900/70 block mt-0.5">
-            {db.kpis.needsReviewQuote}
-          </span>
-        </div>
-
-        <div
-          onClick={() => setStatusFilter("Confirmed")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
-            statusFilter === "Confirmed"
-              ? "border-emerald-600 bg-emerald-50 ring-1 ring-emerald-600"
-              : "border-[var(--color-border-subtle)] bg-white hover:border-emerald-300"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-emerald-800">{db.kpis.confirmed}</span>
-            <CheckCircle className="h-3.5 w-3.5 text-emerald-600" />
-          </div>
-          <span className="font-display text-2xl font-bold text-emerald-700 mt-1 block">
-            {stats.confirmedCount}
-          </span>
-          <span className="text-[10px] text-emerald-800/70 block mt-0.5">
-            {db.kpis.readyForDispatch}
-          </span>
-        </div>
-
-        <div
-          onClick={() => setStatusFilter("Quoted")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
-            statusFilter === "Quoted"
-              ? "border-purple-500 bg-purple-50 ring-1 ring-purple-500"
-              : "border-[var(--color-border-subtle)] bg-white hover:border-purple-300"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-purple-800">{db.kpis.quoted}</span>
-            <MessageSquare className="h-3.5 w-3.5 text-purple-600" />
-          </div>
-          <span className="font-display text-2xl font-bold text-purple-700 mt-1 block">
-            {stats.quotedCount}
-          </span>
-          <span className="text-[10px] text-purple-800/70 block mt-0.5">
-            {db.kpis.awaitingCustomer}
-          </span>
-        </div>
-
+        {/* Card 2: Needs Vehicle Assignment (Crucial Alert) */}
         <div
           onClick={() => setAssignmentFilter(assignmentFilter === "unassigned" ? "all" : "unassigned")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
+          className={`cursor-pointer rounded-xl border p-4 transition-all shadow-xs ${
             assignmentFilter === "unassigned"
-              ? "border-red-500 bg-red-50 ring-1 ring-red-500"
+              ? "border-yellow-500 bg-yellow-50 ring-2 ring-yellow-500"
               : stats.unassignedConfirmedOrNew > 0
-              ? "border-yellow-300 bg-yellow-50/40 hover:border-yellow-400"
-              : "border-[var(--color-border-subtle)] bg-white"
+              ? "border-yellow-400 bg-yellow-50/50 hover:border-yellow-500"
+              : "border-[#CBD5E1] bg-white"
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-[#171D19]/60">{db.kpis.needsVehicle}</span>
-            <ShieldAlert className="h-3.5 w-3.5 text-yellow-600" />
+            <span className="text-[11px] uppercase font-bold tracking-wider text-yellow-900">
+              {db.kpis.needsVehicle}
+            </span>
+            <ShieldAlert className="h-4 w-4 text-yellow-600" />
           </div>
-          <span className={`font-display text-2xl font-bold mt-1 block ${
+          <span className={`font-display text-2xl sm:text-3xl font-black mt-1.5 block ${
             stats.unassignedConfirmedOrNew > 0 ? "text-yellow-800" : "text-[#0B3D2E]"
           }`}>
             {stats.unassignedConfirmedOrNew}
           </span>
-          <span className="text-[10px] text-[#171D19]/50 block mt-0.5">
+          <span className="text-xs text-yellow-900/70 block mt-0.5 font-medium">
             {stats.unassignedConfirmedOrNew > 0 ? db.kpis.fleetUnassigned : db.kpis.allAllocated}
           </span>
         </div>
 
+        {/* Card 3: Confirmed / Ready Trips */}
         <div
-          onClick={() => setStatusFilter("Completed")}
-          className={`cursor-pointer rounded-lg border p-3.5 transition-all shadow-sm ${
-            statusFilter === "Completed"
-              ? "border-gray-500 bg-gray-50 ring-1 ring-gray-500"
-              : "border-[var(--color-border-subtle)] bg-white hover:border-gray-300"
+          onClick={() => setStatusFilter("Confirmed")}
+          className={`cursor-pointer rounded-xl border p-4 transition-all shadow-xs ${
+            statusFilter === "Confirmed"
+              ? "border-[#0B3D2E] bg-[#0B3D2E]/10 ring-2 ring-[#0B3D2E]"
+              : "border-[#CBD5E1] bg-white hover:border-[#0B3D2E]"
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[10px] uppercase font-bold text-[#171D19]/60">{db.kpis.passengersServed}</span>
-            <Users className="h-3.5 w-3.5 text-[#BCA77B]" />
+            <span className="text-[11px] uppercase font-bold tracking-wider text-[#0B3D2E]">
+              {db.kpis.confirmed}
+            </span>
+            <CheckCircle className="h-4 w-4 text-[#0B3D2E]" />
           </div>
-          <span className="font-display text-2xl font-bold text-[#0B3D2E] mt-1 block">
-            {stats.totalPassengers}
+          <span className="font-display text-2xl sm:text-3xl font-black text-[#0B3D2E] mt-1.5 block">
+            {stats.confirmedCount}
           </span>
-          <span className="text-[10px] text-[#171D19]/50 block mt-0.5">
-            {stats.completedCount}{db.kpis.completedTripsSuffix}
+          <span className="text-xs text-[#0B3D2E]/70 block mt-0.5">
+            {db.kpis.readyForDispatch}
+          </span>
+        </div>
+
+        {/* Card 4: Completed Trips */}
+        <div
+          onClick={() => setStatusFilter("Completed")}
+          className={`cursor-pointer rounded-xl border p-4 transition-all shadow-xs ${
+            statusFilter === "Completed"
+              ? "border-[#0F284E] bg-[#0F284E]/5 ring-2 ring-[#0F284E]"
+              : "border-[#CBD5E1] bg-white hover:border-[#0F284E]"
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] uppercase font-bold tracking-wider text-[#64748B]">
+              Completed Trips
+            </span>
+            <Users className="h-4 w-4 text-[#0F284E]" />
+          </div>
+          <span className="font-display text-2xl sm:text-3xl font-black text-[#0F284E] mt-1.5 block">
+            {stats.completedCount}
+          </span>
+          <span className="text-xs text-[#64748B] block mt-0.5">
+            {stats.totalPassengers} {dict.common.paxPlural.toLowerCase()} served
           </span>
         </div>
       </div>
@@ -1014,14 +984,14 @@ export function AdminBookingsDashboard({
                 return (
                   <div
                     key={enq.id}
-                    className="group rounded-xl border border-[var(--color-border-subtle)] bg-white shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden"
+                    className="group rounded-xl border border-[#CBD5E1] bg-white shadow-xs hover:shadow-md hover:border-[#0F284E]/40 transition-all flex flex-col justify-between overflow-hidden"
                   >
                     {/* Top Section */}
                     <div>
-                      {/* Card Header */}
-                      <div className="p-4 border-b border-[var(--color-border-subtle)] bg-[#F7F6F2]/40 flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono font-bold text-xs text-[#0B3D2E] bg-white px-2 py-0.5 rounded border border-[var(--color-border-subtle)]">
+                      {/* Card Header: Ref code + Status */}
+                      <div className="p-3.5 border-b border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-mono font-bold text-xs text-[#0F284E] bg-white px-2 py-0.5 rounded border border-[#CBD5E1]">
                             {enq.referenceCode}
                           </span>
                           <button
@@ -1029,7 +999,7 @@ export function AdminBookingsDashboard({
                               navigator.clipboard.writeText(enq.referenceCode);
                               showToast(`${db.copiedPrefix}${enq.referenceCode}`);
                             }}
-                            className="text-[#171D19]/40 hover:text-[#0B3D2E]"
+                            className="text-[#64748B] hover:text-[#0F284E] p-1 rounded hover:bg-white"
                             title={db.card.copyRefTitle}
                           >
                             <Copy className="h-3 w-3" />
@@ -1039,7 +1009,7 @@ export function AdminBookingsDashboard({
                         <div className="flex items-center gap-1.5">
                           {getProximityBadge(enq.pickupDate)}
                           <span
-                            className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold border ${badge.bg}`}
+                            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-bold border ${badge.bg}`}
                           >
                             <span className={`h-1.5 w-1.5 rounded-full ${badge.dot}`} />
                             {badge.label}
@@ -1047,120 +1017,66 @@ export function AdminBookingsDashboard({
                         </div>
                       </div>
 
-                      {/* Service & Vehicle Banner */}
-                      <div className="px-4 py-2.5 bg-white border-b border-[var(--color-border-subtle)] flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-2 font-semibold text-[#0B3D2E]">
-                          {getServiceIcon(enq.serviceType)}
-                          <span className="capitalize">{getServiceName(enq.serviceType)}</span>
-                        </div>
-
-                        {enq.serviceSpecificData?.flightNumber && (
-                          <span className="rounded bg-sky-50 px-2 py-0.5 text-[10px] font-mono font-bold text-sky-800 border border-sky-200">
-                            ✈️ {enq.serviceSpecificData.flightNumber}
-                          </span>
-                        )}
-                        {enq.serviceSpecificData?.venues && (
-                          <span className="rounded bg-purple-50 px-2 py-0.5 text-[10px] font-semibold text-purple-800 border border-purple-200 truncate max-w-[120px]">
-                            💍 {enq.serviceSpecificData.venues}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Route & Schedule Info */}
+                      {/* Main Crucial Details */}
                       <div className="p-4 space-y-3">
-                        {/* Pickup Date & Time */}
-                        <div className="flex items-center justify-between text-xs">
-                          <div className="flex items-center gap-1.5 font-semibold text-[#0B3D2E]">
-                            <Calendar className="h-3.5 w-3.5 text-[#BCA77B]" />
-                            <span className="font-mono">{enq.pickupDate}</span>
-                            <span className="text-[#171D19]/40 font-normal">{db.card.atWord}</span>
-                            <span className="font-mono">{enq.pickupTime}</span>
+                        {/* Customer & Quick Contact */}
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0">
+                            <h4 className="font-bold text-sm text-[#0F284E] truncate">
+                              {enq.customerName}
+                            </h4>
+                            <p className="text-xs text-[#64748B] font-mono mt-0.5">
+                              {enq.customerPhone}
+                            </p>
                           </div>
+                          <a
+                            href={waUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 rounded-md bg-emerald-50 border border-emerald-300 px-2.5 py-1 text-xs font-semibold text-emerald-800 hover:bg-emerald-100 shrink-0 transition-colors"
+                            title="Chat on WhatsApp"
+                          >
+                            <MessageSquare className="h-3.5 w-3.5 text-emerald-600" />
+                            <span>WhatsApp</span>
+                          </a>
+                        </div>
 
-                          <div className="flex items-center gap-1 text-[11px] font-semibold text-[#171D19]/70">
-                            <Users className="h-3.5 w-3.5 text-[#BCA77B]" />
-                            <span>
-                              {enq.passengerCount}{" "}
-                              {enq.passengerCount === 1 ? db.card.paxSingular : db.card.paxPlural}
-                            </span>
+                        {/* Service & Pickup Schedule */}
+                        <div className="rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] p-2.5 space-y-1.5 text-xs">
+                          <div className="flex items-center gap-2 font-semibold text-[#0B3D2E]">
+                            {getServiceIcon(enq.serviceType)}
+                            <span className="capitalize">{getServiceName(enq.serviceType)}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 text-[#1E293B]">
+                            <Calendar className="h-3.5 w-3.5 text-[#EAB308]" />
+                            <span className="font-medium">{enq.pickupDate}</span>
+                            <span className="text-[#64748B]">at</span>
+                            <span className="font-semibold text-[#0F284E]">{enq.pickupTime}</span>
+                          </div>
+                          <div className="text-[11px] text-[#64748B] flex items-center gap-1 truncate pt-0.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="truncate">{enq.pickupLocation}</span>
+                            {enq.dropoffLocation && (
+                              <>
+                                <span className="text-[#94A3B8]">→</span>
+                                <span className="truncate">{enq.dropoffLocation}</span>
+                              </>
+                            )}
                           </div>
                         </div>
 
-                        {/* Route Line */}
-                        <div className="rounded-lg bg-[#F7F6F2] p-2.5 text-xs space-y-1.5 border border-[var(--color-border-subtle)]">
-                          <div className="flex items-start gap-2">
-                            <span className="h-2 w-2 rounded-full bg-emerald-600 shrink-0 mt-1" />
-                            <div className="min-w-0">
-                              <span className="text-[10px] uppercase font-bold text-[#171D19]/40 block">{db.card.pickup}</span>
-                              <p className="font-medium text-[#171D19] truncate">{enq.pickupLocation}</p>
-                            </div>
-                          </div>
-
-                          {enq.dropoffLocation && (
-                            <div className="flex items-start gap-2 pt-1 border-t border-[var(--color-border-subtle)]">
-                              <span className="h-2 w-2 rounded-full bg-yellow-500 shrink-0 mt-1" />
+                        {/* Vehicle Assignment Status */}
+                        {displayAssignedVehicle ? (
+                          <div className="rounded-md border border-[#0B3D2E]/20 bg-[#0B3D2E]/5 px-2.5 py-2 flex items-center justify-between text-xs">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <Car className="h-4 w-4 text-[#0B3D2E] shrink-0" />
                               <div className="min-w-0">
-                                <span className="text-[10px] uppercase font-bold text-[#171D19]/40 block">{db.card.dropoff}</span>
-                                <p className="font-medium text-[#171D19] truncate">{enq.dropoffLocation}</p>
+                                <span className="font-bold text-[#0B3D2E] block truncate">{displayAssignedVehicle}</span>
+                                {enq.driverName && (
+                                  <span className="text-[10px] text-[#64748B] block truncate">Driver: {enq.driverName}</span>
+                                )}
                               </div>
                             </div>
-                          )}
-
-                          {enq.returnDate && (
-                            <div className="text-[10px] text-[#0B3D2E] font-medium pt-1 border-t border-[var(--color-border-subtle)] flex items-center justify-between">
-                              <span>{db.card.returnPrefix}{enq.returnDate} ({enq.returnTime || "10:00"})</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Customer Information Box */}
-                        <div className="space-y-1.5 text-xs">
-                          <div className="flex items-center justify-between">
-                            <strong className="text-[#0B3D2E] truncate font-sans text-sm">
-                              {enq.customerName}
-                            </strong>
-                            <div className="flex items-center gap-1 shrink-0">
-                              <a
-                                href={waUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="rounded bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-800 hover:bg-emerald-100 flex items-center gap-1 border border-emerald-200"
-                                title={db.card.whatsappTitle}
-                              >
-                                <MessageSquare className="h-3 w-3 text-emerald-600" />
-                                <span>{dict.common.whatsapp}</span>
-                              </a>
-                              <a
-                                href={`tel:${enq.customerPhone}`}
-                                className="rounded bg-gray-100 p-1 text-gray-700 hover:bg-gray-200"
-                                title={db.card.callTitle}
-                              >
-                                <Phone className="h-3 w-3" />
-                              </a>
-                            </div>
-                          </div>
-
-                          <div className="text-[11px] text-[#171D19]/60 flex items-center justify-between">
-                            <span>{enq.customerPhone}</span>
-                            <span className="truncate max-w-[140px]">{enq.customerEmail}</span>
-                          </div>
-
-                          {enq.bookingForSomeoneElse && (
-                            <div className="rounded bg-yellow-50 border border-yellow-300 p-1.5 text-[11px] text-yellow-950 flex items-center gap-1.5">
-                              <UserCheck className="h-3.5 w-3.5 text-yellow-700 shrink-0" />
-                              <span className="truncate">
-                                {db.card.travellerPrefix}<strong>{enq.travellerName}</strong> ({enq.travellerPhone})
-                              </span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Fleet Allocation Box */}
-                        <div className="rounded-md border p-2.5 text-xs bg-white space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[10px] uppercase font-bold text-[#171D19]/50">
-                              {db.card.fleetVehicle}
-                            </span>
                             <button
                               onClick={() => {
                                 setAssigningEnquiry(enq);
@@ -1169,58 +1085,41 @@ export function AdminBookingsDashboard({
                                 setAssignDriverName(enq.driverName || "");
                                 setAssignDriverPhone(enq.driverPhone || "");
                               }}
-                              className="text-[10px] font-bold text-[#0B3D2E] hover:text-[#BCA77B] underline uppercase tracking-wider"
+                              className="text-[10px] font-bold text-[#0B3D2E] hover:underline uppercase shrink-0 ml-2"
                             >
-                              {enq.assignedVehicleName ? db.card.reassign : db.card.assignFleet}
+                              Edit
                             </button>
                           </div>
-
-                          {displayAssignedVehicle ? (
-                            <div>
-                              <div className="font-semibold text-[#0B3D2E] flex items-center gap-1.5">
-                                <Car className="h-3.5 w-3.5 text-emerald-600" />
-                                <span>{displayAssignedVehicle}</span>
-                              </div>
-                              {enq.driverName && (
-                                <p className="text-[11px] text-[#171D19]/60 mt-0.5">
-                                  {db.card.driverPrefix}<strong>{enq.driverName}</strong> {enq.driverPhone && `(${enq.driverPhone})`}
-                                </p>
-                              )}
+                        ) : (
+                          <div className="rounded-md border border-[#FACC15] bg-[#FEF9C3] px-2.5 py-1.5 flex items-center justify-between text-xs text-yellow-900">
+                            <div className="flex items-center gap-1.5">
+                              <AlertTriangle className="h-3.5 w-3.5 text-yellow-700 shrink-0" />
+                              <span className="font-semibold text-[11px]">Needs Vehicle</span>
                             </div>
-                          ) : (
-                            <div className="flex items-center gap-1.5 text-yellow-800 text-[11px] font-semibold py-0.5">
-                              <AlertTriangle className="h-3.5 w-3.5 text-yellow-600 shrink-0" />
-                              <span>{db.card.pendingVehicleAssignment}</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Quoted Price */}
-                        {enq.quotedPriceRwf && (
-                          <div className="flex items-center justify-between text-xs pt-1 border-t border-[var(--color-border-subtle)]">
-                            <span className="text-[10px] uppercase font-semibold text-[#171D19]/50">{db.card.quotedPrice}</span>
-                            <span className="font-mono font-bold text-[#0B3D2E]">
-                              {enq.quotedPriceRwf.toLocaleString()} {dict.common.rwf}
-                            </span>
+                            <button
+                              onClick={() => {
+                                setAssigningEnquiry(enq);
+                                setAssignVehicleId("");
+                                setAssignVehicleName("");
+                                setAssignDriverName("");
+                                setAssignDriverPhone("");
+                              }}
+                              className="text-[10px] font-bold text-yellow-900 bg-white/80 hover:bg-white px-2 py-0.5 rounded border border-yellow-300 uppercase shrink-0"
+                            >
+                              Assign
+                            </button>
                           </div>
-                        )}
-
-                        {/* Customer Note Snippet */}
-                        {enq.customerNotes && (
-                          <p className="text-[11px] text-[#171D19]/70 italic line-clamp-2 bg-[#F7F6F2]/60 p-2 rounded border border-[var(--color-border-subtle)]">
-                            &ldquo;{enq.customerNotes}&rdquo;
-                          </p>
                         )}
                       </div>
                     </div>
 
                     {/* Card Actions Footer */}
-                    <div className="p-3 border-t border-[var(--color-border-subtle)] bg-[#F7F6F2]/30 flex items-center justify-between gap-2">
+                    <div className="p-3 border-t border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between gap-2">
                       {/* Status Dropdown */}
                       <select
                         value={enq.status}
                         onChange={(e) => handleQuickStatusChange(enq.id, e.target.value as any)}
-                        className="rounded border border-[var(--color-border-subtle)] bg-white px-2 py-1 text-[11px] font-semibold text-[#0B3D2E] focus:outline-none"
+                        className="rounded border border-[#CBD5E1] bg-white px-2 py-1 text-xs font-semibold text-[#0F284E] focus:outline-none focus:ring-1 focus:ring-[#0F284E]"
                       >
                         <option value="New">{db.statuses.New}</option>
                         <option value="Contacted">{db.statuses.Contacted}</option>
@@ -1234,30 +1133,19 @@ export function AdminBookingsDashboard({
                         <button
                           onClick={() => handleOpenInvoiceForBooking(enq.id)}
                           disabled={isLoadingInvoice}
-                          className="inline-flex items-center gap-1 rounded border border-[#0F284E]/30 bg-white px-2 py-1 text-[11px] font-semibold text-[#0F284E] hover:bg-[#0F284E] hover:text-[#F7F6F2] transition-colors"
+                          className="inline-flex items-center gap-1 rounded border border-[#0F284E] bg-white px-2.5 py-1 text-xs font-semibold text-[#0F284E] hover:bg-[#0F284E] hover:text-white transition-colors"
                           title="Generate or view official tax invoice"
                         >
-                          <Receipt className="h-3 w-3 text-[#BCA77B]" />
+                          <Receipt className="h-3.5 w-3.5 text-[#EAB308]" />
                           <span>Invoice</span>
-                        </button>
-
-                        <button
-                          onClick={() => {
-                            setQuickNoteEnquiry(enq);
-                            setQuickNoteText("");
-                          }}
-                          className="rounded border border-[var(--color-border-subtle)] bg-white px-2 py-1 text-[11px] font-semibold text-[#171D19]/70 hover:text-[#0B3D2E] hover:border-[#0B3D2E]"
-                          title={db.card.addNoteTooltip}
-                        >
-                          {db.card.addNoteBtn}
                         </button>
 
                         <Link
                           href={`/admin/enquiries/${enq.id}`}
-                          className="inline-flex items-center gap-1 rounded bg-[#0B3D2E] px-2.5 py-1 text-[11px] font-semibold text-[#F7F6F2] hover:bg-[#06281E] transition-colors"
+                          className="inline-flex items-center gap-1 rounded bg-[#0B3D2E] hover:bg-[#06281E] px-3 py-1 text-xs font-semibold text-white transition-colors"
                         >
-                          <span>{db.card.manageBtn}</span>
-                          <ArrowRight className="h-3 w-3 text-[#BCA77B]" />
+                          <span>View More</span>
+                          <ArrowRight className="h-3.5 w-3.5 text-[#FACC15]" />
                         </Link>
                       </div>
                     </div>

@@ -689,7 +689,7 @@
       "bookingForSomeoneElse": false,
       "privacyAccepted": true,
       "createdAt": "2026-11-05T19:01:26.023Z",
-      "updatedAt": "2026-11-10T13:08:45.088Z",
+      "updatedAt": "2026-11-10T14:17:05.415Z",
       "assignedVehicleId": "veh-kia-k5",
       "assignedVehicleName": "Kia K5 Executive Sedan"
     },
@@ -1115,6 +1115,15 @@
       "changedByEmail": "admin@travelrwanda.rw",
       "note": "Verified airport arrival schedule with client on WhatsApp.",
       "createdAt": "2026-11-10T13:08:45.088Z"
+    },
+    {
+      "id": "hist-1794320225415-1f0y",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T14:17:05.415Z"
     }
   ],
   "notes": [
@@ -1299,6 +1308,13 @@
       "authorEmail": "admin@travelrwanda.rw",
       "body": "Client arriving on delayed RwandAir flight.",
       "createdAt": "2026-11-10T13:08:45.092Z"
+    },
+    {
+      "id": "note-1794320225440-w1qb",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T14:17:05.440Z"
     }
   ],
   "notifications": [
@@ -1551,6 +1567,16 @@
       "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
       "attemptCount": 1,
       "lastAttemptAt": "2026-11-10T13:08:45.096Z"
+    },
+    {
+      "id": "notif-1794320225577-b3t4",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T14:17:05.560Z"
     }
   ],
   "invoices": [

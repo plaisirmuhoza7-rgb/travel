@@ -124,7 +124,7 @@ export default async function HomePage() {
       <HeroSlideshow />
 
       {/* SECTION B: ABOUT US */}
-      <section className="pt-14 sm:pt-20 md:pt-24 pb-12 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <section className="pt-10 sm:pt-20 md:pt-24 pb-10 md:pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div
           style={{
             borderRadius: "32px",
@@ -160,7 +160,7 @@ export default async function HomePage() {
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-stretch">
             {/* Left Column */}
-            <div className="lg:col-span-6 p-7 sm:p-11 lg:p-14 flex flex-col justify-center space-y-7 order-1">
+            <div className="lg:col-span-6 px-6 pt-7 pb-3 md:p-11 lg:p-14 flex flex-col justify-center space-y-5 md:space-y-7 order-1">
               <div className="flex items-center gap-3">
                 <div
                   style={{
@@ -193,8 +193,8 @@ export default async function HomePage() {
                 </p>
               </div>
 
-              {/* Smooth 2x2 Editorial Feature Matrix */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Smooth 2x2 Editorial Feature Matrix (Desktop / Tablet) */}
+              <div className="hidden md:grid md:grid-cols-2 gap-3.5">
                 {dict.home.aboutCard.features.map((feat, i) => {
                   const iconInfo = featureIcons[i] ?? featureIcons[0];
                   const IconComp = iconInfo.Icon;
@@ -221,8 +221,8 @@ export default async function HomePage() {
                 })}
               </div>
 
-              {/* Subtle Architectural Trust Metrics Strip */}
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 border-t border-slate-200/80 pt-5">
+              {/* Subtle Architectural Trust Metrics Strip (Desktop / Tablet) */}
+              <div className="hidden md:grid grid-cols-3 gap-4 border-t border-slate-200/80 pt-5">
                 {dict.home.aboutCard.metrics.map((metric, idx) => (
                   <div
                     key={metric.label}
@@ -242,8 +242,8 @@ export default async function HomePage() {
                 ))}
               </div>
 
-              {/* Sleek Dual Action Pills */}
-              <div className="pt-1 flex flex-wrap items-center gap-4">
+              {/* Sleek Dual Action Pills (Desktop / Tablet) */}
+              <div className="pt-1 hidden md:flex flex-wrap items-center gap-4">
                 <Link
                   href="/plan-your-journey"
                   style={{
@@ -303,13 +303,13 @@ export default async function HomePage() {
             </div>
 
             {/* Right Column: Inset Museum-Grade Gallery Frame */}
-            <div className="lg:col-span-6 p-4 sm:p-6 lg:p-8 lg:pl-2 order-2 flex">
+            <div className="lg:col-span-6 px-4 pt-2 pb-4 md:p-6 lg:p-8 lg:pl-2 order-2 flex">
               <div
                 style={{
                   borderRadius: "24px",
                   boxShadow: "0 26px 65px -16px rgba(6, 18, 38, 0.28)",
                 }}
-                className="relative w-full min-h-[380px] sm:min-h-[460px] lg:min-h-[560px] overflow-hidden rounded-[24px] bg-[#091A34] ring-1 ring-[#0F284E]/15"
+                className="relative w-full min-h-[340px] sm:min-h-[460px] lg:min-h-[560px] overflow-hidden rounded-[24px] bg-[#091A34] ring-1 ring-[#0F284E]/15"
               >
                 <Image
                   src={suvImg}
@@ -360,6 +360,30 @@ export default async function HomePage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Mobile-Only Dual CTAs Below Car Image */}
+            <div className="md:hidden order-3 px-4 pt-1 pb-6 grid grid-cols-2 gap-2.5 sm:gap-3">
+              <Link
+                href="/plan-your-journey"
+                style={{
+                  boxShadow: "0 14px 28px -8px rgba(250, 204, 21, 0.45)",
+                }}
+                className="group min-h-[48px] inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#FACC15] border-2 border-[#FACC15] text-[#061226] px-2.5 sm:px-4 py-3 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider hover:bg-[#EAB308] hover:border-[#EAB308] active:bg-[#EAB308] active:scale-[0.98] transition-all whitespace-nowrap"
+              >
+                <span>{dict.home.aboutCard.bookNow}</span>
+                <span className="inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full bg-[#061226] text-[#FACC15] transition-transform group-hover:translate-x-0.5">
+                  <ArrowRight className="h-3 w-3 stroke-[3]" />
+                </span>
+              </Link>
+
+              <Link
+                href="/services"
+                className="group min-h-[48px] inline-flex items-center justify-center gap-1.5 rounded-full bg-white border-2 border-[#CBD5E1] text-[#0F284E] px-2.5 sm:px-4 py-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider hover:border-[#0F284E] hover:bg-slate-50 active:bg-slate-50 active:scale-[0.98] transition-all whitespace-nowrap"
+              >
+                <span>{dict.home.aboutCard.ourServices}</span>
+                <ArrowRight className="h-3.5 w-3.5 text-[#063726] shrink-0 transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </div>
         </div>
