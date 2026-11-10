@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Huriza-inspired Clean Tech-Corporate Palette */
+  --color-navy: #0F284E;          /* Primary dark blue */
+  --color-navy-dark: #091A34;     /* Deepest navy */
+  --color-navy-light: #1A3E72;    /* Slate navy / hover */
+  --color-navy-accent: #225193;   /* Accent blue */
+  
+  --color-green-emerald: #10B981; /* Fresh vivid green accent */
+  --color-green-dark: #059669;
+  --color-green-light: #D1FAE5;
+  
+  --color-yellow-accent: #FACC15; /* Pure vibrant true yellow (Yellow 400) */
+  --color-yellow-light: #FEF9C3;  /* Soft clean yellow tint (Yellow 100) */
+  --color-yellow-hover: #EAB308;  /* Rich true yellow hover (Yellow 500) */
+
+  --color-surface-white: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+  --color-surface-muted: #F8FAFC; /* Slate 50 clean background */
+  --color-surface-soft: #F1F5F9;  /* Slate 100 border/neutral */
+  
+  --color-text-main: #0F172A;     /* Slate 900 for ultra-high legibility */
+  --color-text-muted: #475569;    /* Slate 600 readable secondary */
+  --color-text-light: #64748B;    /* Slate 500 tertiary */
+
+  --color-border-subtle: #E2E8F0; /* Slate 200 clean borders */
+  --color-border-focus: #3B82F6;  /* Blue 500 */
+
+  --background: #F8FAFC;
+  --foreground: #0F172A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-navy: var(--color-navy);
+  --color-navy-dark: var(--color-navy-dark);
+  --color-navy-light: var(--color-navy-light);
+  --color-navy-accent: var(--color-navy-accent);
+  
+  --color-green-emerald: var(--color-green-emerald);
+  --color-green-dark: var(--color-green-dark);
+  --color-green-light: var(--color-green-light);
+
+  --color-yellow-accent: var(--color-yellow-accent);
+  --color-yellow-light: var(--color-yellow-light);
+  --color-yellow-hover: var(--color-yellow-hover);
+
+  --color-surface-white: var(--color-surface-white);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-surface-soft: var(--color-surface-soft);
+
+  --color-text-main: var(--color-text-main);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-light: var(--color-text-light);
+
+  --font-display: var(--font-display), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+/* Eliminate 300ms touch click latency on mobile browsers */
+a, button, input, select, textarea, label, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Ensure mobile form inputs are at least 16px to prevent iOS auto-zoom */
+@media (max-width: 640px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-navy-accent);
+  outline-offset: 2px;
+}
+
+/* Content visibility utility for mobile DOM paint optimization */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}
+
+/* GPU acceleration for sticky headers and fixed mobile bars */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

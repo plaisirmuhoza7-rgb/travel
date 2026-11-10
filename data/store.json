@@ -1,0 +1,1504 @@
+{
+  "settings": {
+    "brandName": "Travel Rwanda",
+    "brandDescriptor": "Transport Services",
+    "brandTagline": "Travel with Comfort. Travel with Us!",
+    "corePromise": "Arrive with confidence. Travel in comfort.",
+    "locationDisplay": "Kicukiro, Gahanga Center, Rwanda",
+    "phonePrimary": "+250 784 129 579",
+    "phoneSecondary": "+250 781 782 882",
+    "whatsappNumber": "250784129579",
+    "contactEmail": "",
+    "policiesApproved": false,
+    "demoModeActive": true
+  },
+  "categories": [
+    {
+      "id": "cat-suv",
+      "slug": "premium-suvs",
+      "name": "Premium SUVs",
+      "description": "Spacious, high-clearance 4x4s and crossovers suitable for Kigali travel, VIP events, and scenic upcountry roads.",
+      "sortOrder": 1
+    },
+    {
+      "id": "cat-electric",
+      "slug": "electric-hybrid",
+      "name": "Electric & Hybrid",
+      "description": "Next-generation electric, range-extended, and plug-in hybrid SUVs combining whisper-quiet refinement with range.",
+      "sortOrder": 2
+    },
+    {
+      "id": "cat-executive",
+      "slug": "executive-sedans",
+      "name": "Executive Cars",
+      "description": "Comfortable, refined sedans tailored for business meetings, airport arrivals, and city navigation.",
+      "sortOrder": 3
+    },
+    {
+      "id": "cat-van",
+      "slug": "vans-group",
+      "name": "Vans & Buses",
+      "description": "High-roof passenger vans and 28-seater Toyota Coaster minibuses for delegations and family groups.",
+      "sortOrder": 4
+    },
+    {
+      "id": "cat-wedding",
+      "slug": "wedding-fleet",
+      "name": "Wedding & VIP",
+      "description": "Flagship executive SUVs, sedans, and coordinated Coaster shuttles for Rwandan weddings, Gusaba, and summits.",
+      "sortOrder": 5
+    }
+  ],
+  "services": [
+    {
+      "id": "srv-car-rental",
+      "slug": "car-rental",
+      "name": "Car Rental",
+      "shortSummary": "Flexible daily and multi-day vehicle rental in Kigali and across Rwanda.",
+      "fullDescription": "Reliable vehicle rental for personal, family, or business travel in Rwanda. Clear agreements, verified maintenance, and dedicated local support throughout your journey.",
+      "isEnabled": true,
+      "requiresOwnerConfirmation": false,
+      "sortOrder": 1
+    },
+    {
+      "id": "srv-airport-transfer",
+      "slug": "airport-transfer",
+      "name": "Airport Transfers",
+      "shortSummary": "Punctual Kigali International Airport (KGL) arrivals and departures.",
+      "fullDescription": "Arrive in Rwanda with peace of mind. We track your flight, assist with luggage, and ensure direct, comfortable transfer to your residence, hotel, or meeting in Kigali or upcountry.",
+      "isEnabled": true,
+      "requiresOwnerConfirmation": false,
+      "sortOrder": 2
+    },
+    {
+      "id": "srv-wedding-event",
+      "slug": "wedding-event",
+      "name": "Weddings & Ceremonies",
+      "shortSummary": "Distinguished bridal convoys and guest transport for life’s important celebrations.",
+      "fullDescription": "Coordinated transport for traditional Gusaba, civil weddings, and receptions. Combine VIP bridal vehicles (V8, TXL, K5) with spacious coaster buses for family and wedding guests.",
+      "isEnabled": true,
+      "requiresOwnerConfirmation": false,
+      "sortOrder": 3
+    },
+    {
+      "id": "srv-group-transport",
+      "slug": "group-transport",
+      "name": "Vans, Coasters & Group Transport",
+      "shortSummary": "Coordinated transport for delegations, diaspora family reunions, and organisations.",
+      "fullDescription": "Passenger vans (HiAce class, Starex) and Toyota Coaster minibuses equipped to transport groups, large luggage volumes, and organizational delegations across Rwanda.",
+      "isEnabled": true,
+      "requiresOwnerConfirmation": false,
+      "sortOrder": 4
+    },
+    {
+      "id": "srv-corporate-transport",
+      "slug": "corporate-transport",
+      "name": "Corporate & Event Transport",
+      "shortSummary": "Professional ground logistics for conferences, NGOs, and visiting executives.",
+      "fullDescription": "Ground transport logistics for Kigali summits, NGO missions, and corporate events. Professional protocol, punctual scheduling, and dedicated coordinator support.",
+      "isEnabled": true,
+      "requiresOwnerConfirmation": false,
+      "sortOrder": 5
+    },
+    {
+      "id": "srv-self-drive",
+      "slug": "self-drive",
+      "name": "Self-Drive Rental",
+      "shortSummary": "Unpublished — requires owner confirmation of insurance terms and driver requirements.",
+      "fullDescription": "Self-drive rental option. Kept unpublished until insurance policies, security deposits, and age requirements are verified by the business owner.",
+      "isEnabled": false,
+      "requiresOwnerConfirmation": true,
+      "sortOrder": 6
+    },
+    {
+      "id": "srv-chauffeur-service",
+      "slug": "chauffeur-service",
+      "name": "Dedicated Chauffeur Service",
+      "shortSummary": "Unpublished — requires owner confirmation of driver pricing rules.",
+      "fullDescription": "Professional dedicated driver service for daily hire. Kept unpublished until driver daily allowances and working hours are verified.",
+      "isEnabled": false,
+      "requiresOwnerConfirmation": true,
+      "sortOrder": 7
+    },
+    {
+      "id": "srv-tours",
+      "slug": "regional-tours",
+      "name": "Scenic Regional Transport",
+      "shortSummary": "Unpublished — Travel Rwanda does not offer invented tour packages.",
+      "fullDescription": "Transport to regional destinations like Lake Kivu, Musanze, or Akagera. Kept unpublished until specific itineraries are confirmed by the owner.",
+      "isEnabled": false,
+      "requiresOwnerConfirmation": true,
+      "sortOrder": 8
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "veh-prado-txl",
+      "slug": "toyota-land-cruiser-prado-txl",
+      "name": "Toyota Land Cruiser Prado TXL",
+      "subtitle": "Gloss black executive 4x4 tailored for Kigali VIP travel, weddings & provincial routes",
+      "description": "Presented in gloss black showroom condition, the Land Cruiser Prado TXL pairs a distinctive vertical chrome grille, dual-zone climate comfort, three-row leather seating, and dependable full-time 4WD. A signature favourite for weddings, diplomats, and upcountry Rwanda journeys.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 7,
+      "luggageCapacity": 4,
+      "transmission": "Automatic (6-Speed)",
+      "fuelType": "Diesel (2.8L D-4D 4WD)",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Executive city transport",
+        "Wedding & Gusaba bridal convoys",
+        "Scenic upcountry travel",
+        "VIP Kigali Airport pickup"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "wedding-event",
+        "airport-transfer",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Showroom exterior & interior preparation",
+        "24/7 dispatch coordinator support",
+        "Full-time 4WD mountain & highway readiness"
+      ],
+      "excludedItems": [
+        "Fuel (supplied with documented initial reading)",
+        "Chauffeur accommodation on multi-day upcountry stays if selected"
+      ],
+      "primaryAssetSlot": "fleet-txl-main",
+      "isPublished": true,
+      "isFeatured": true,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-prado-safari",
+      "slug": "toyota-land-cruiser-prado-expedition",
+      "name": "Toyota Land Cruiser Prado 4x4 Expedition",
+      "subtitle": "Steel-bumper 4x4 expedition Land Cruiser built for national parks and steep terrain",
+      "description": "Specially outfitted with a heavy-duty ARB-style steel front protection bumper, integrated fog lights, roof rails, and rugged mud-terrain tires. Engineered to tackle Akagera tracks, Nyungwe Forest hills, and Volcanoes National Park roads with complete confidence.",
+      "categoryIds": [
+        "cat-suv"
+      ],
+      "passengerCapacity": 7,
+      "luggageCapacity": 5,
+      "transmission": "Automatic (4x4 Low-Range)",
+      "fuelType": "Diesel (Turbo 4x4)",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Akagera, Volcanoes & Nyungwe park trips",
+        "Field & NGO upcountry missions",
+        "Group photography & expedition luggage"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Pre-trip off-road safety inspection",
+        "Heavy-duty tire & suspension prep",
+        "24/7 roadside assistance line"
+      ],
+      "excludedItems": [
+        "Fuel",
+        "National park vehicle entry permits"
+      ],
+      "primaryAssetSlot": "fleet-prado-safari",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-yangwang-u8",
+      "slug": "yangwang-u8-luxury-4x4",
+      "name": "Yangwang U8 Luxury 4x4",
+      "subtitle": "Ultra-luxury flagship range-extended electric 4x4 in Dragonstone Teal for VIP & bridal arrivals",
+      "description": "BYD's flagship ultra-luxury SUV delivers effortless silent torque via the e4 quad-motor independent wheel-drive system and DiSus-P intelligent hydraulic body control suspension. Pair signature Time-Space Portal LED prestige with 1,000 km combined EREV range for high-profile summits and VIP ceremonies.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-electric",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 5,
+      "luggageCapacity": 4,
+      "transmission": "Automatic (e4 Quad-Motor Direct Drive)",
+      "fuelType": "Range-Extended Electric (EREV)",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Heads-of-state & diplomatic VIP protocol",
+        "Signature luxury bridal lead vehicle",
+        "High-profile executive summit arrivals"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "wedding-event",
+        "corporate-transport",
+        "airport-transfer"
+      ],
+      "includedItems": [
+        "Chauffeur-ready executive preparation",
+        "Whisper-quiet cabin with executive climate control",
+        "Dedicated concierge dispatch coordination"
+      ],
+      "excludedItems": [
+        "Fuel / Charging for extended regional range",
+        "Custom floral wedding ribbon dressing (optional)"
+      ],
+      "primaryAssetSlot": "fleet-yangwang-u8",
+      "isPublished": true,
+      "isFeatured": true,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-byd-seal-u",
+      "slug": "byd-seal-u-executive-suv",
+      "name": "BYD Seal U Executive SUV",
+      "subtitle": "Quiet, spacious silver metallic Ocean-Series crossover built for Kigali comfort",
+      "description": "Clean modern aerodynamics paired with BYD Blade Battery refinement. Inside, passengers enjoy a flat rear cabin floor for generous legroom, vegan leather comfort, panoramic sunroof, and a practical 425L–1,440L cargo bay for airport suitcases and daily Kigali travel.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-electric",
+        "cat-executive"
+      ],
+      "passengerCapacity": 5,
+      "luggageCapacity": 4,
+      "transmission": "Single-Speed Automatic",
+      "fuelType": "Electric / Plug-in Hybrid (DM-i)",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Silent urban Kigali executive meetings",
+        "Kigali Airport (KGL) arrivals & hotel transfers",
+        "Eco-conscious corporate mobility"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Full interior & exterior detailing",
+        "Dual-zone cabin air conditioning",
+        "24/7 dispatch line"
+      ],
+      "excludedItems": [
+        "Charging / Fuel beyond handover level"
+      ],
+      "primaryAssetSlot": "fleet-byd-seal-u",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-kia-k5",
+      "slug": "kia-k5-executive-sedan",
+      "name": "Kia K5 Executive Sedan",
+      "subtitle": "Sleek black 2025 fastback sedan with Star-Map LED styling for business & KGL transfers",
+      "description": "Sharp architectural proportions, signature Star-Map LED daytime lighting, acoustic cabin insulation, and a generous 15.6 cu. ft. trunk make the 2025 Kia K5 the premier choice for executives, solo travellers, couples, and bridal escort duties across Kigali.",
+      "categoryIds": [
+        "cat-executive",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 5,
+      "luggageCapacity": 3,
+      "transmission": "Automatic (8-Speed)",
+      "fuelType": "Petrol",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Kigali corporate & ministry transfers",
+        "Speedy KGL Airport pickups",
+        "Groom & bridal party escort"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "corporate-transport",
+        "wedding-event"
+      ],
+      "includedItems": [
+        "Spotless cabin sanitization",
+        "Automatic climate control",
+        "Direct WhatsApp dispatch coordinator"
+      ],
+      "excludedItems": [
+        "Fuel"
+      ],
+      "primaryAssetSlot": "fleet-kia-k5-main",
+      "isPublished": true,
+      "isFeatured": true,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-kia-sorento-2025",
+      "slug": "kia-sorento-2025-executive",
+      "name": "Kia Sorento 2025 Executive",
+      "subtitle": "Updated slate-blue three-row executive SUV featuring Star-Map lighting & black alloy wheels",
+      "description": "Refreshed with bold vertical quad-LED headlights, amber T-bar daytime signatures, black alloy wheels, and a versatile three-row cabin with up to 2,085L expandable storage when rear seats fold. Built for visiting executives, weddings, and family comfort.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 7,
+      "luggageCapacity": 4,
+      "transmission": "Automatic",
+      "fuelType": "Hybrid / Petrol",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Executive hotel & conference mobility",
+        "Family arrivals with extra suitcases",
+        "Modern wedding escort convoy"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "wedding-event",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Pre-dispatch mechanical inspection",
+        "Clean three-row leather interior",
+        "On-call Kigali assistance"
+      ],
+      "excludedItems": [
+        "Fuel"
+      ],
+      "primaryAssetSlot": "fleet-kia-sorento-2025",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-kia-sorento",
+      "slug": "kia-sorento",
+      "name": "Kia Sorento 7-Seater SUV",
+      "subtitle": "Pacific Blue three-row crossover balancing highway comfort with flexible family space",
+      "description": "Finished in Pacific Blue with signature tiger-nose grille detailing, the Kia Sorento seats up to 7 passengers smoothly with multi-zone cabin cooling and adaptable luggage space for diaspora families and small groups visiting Rwanda.",
+      "categoryIds": [
+        "cat-suv"
+      ],
+      "passengerCapacity": 7,
+      "luggageCapacity": 3,
+      "transmission": "Automatic",
+      "fuelType": "Diesel / Petrol",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Visiting family & diaspora group rides",
+        "Kigali to Lake Kivu highway comfort",
+        "Airport transfers with family luggage"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "group-transport"
+      ],
+      "includedItems": [
+        "Routine mechanical servicing",
+        "Clean cabin & cold AC check",
+        "Direct coordinator phone line"
+      ],
+      "excludedItems": [
+        "Fuel"
+      ],
+      "primaryAssetSlot": "fleet-sorento-main",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-hyundai-tucson-horizon",
+      "slug": "hyundai-tucson-next-gen",
+      "name": "Hyundai Tucson Next-Gen",
+      "subtitle": "Architectural metallic-bronze crossover featuring full-width H-Edge LED lighting",
+      "description": "Showcasing Hyundai's sculpted Art of Steel design language with a wider stance, clamshell hood, indirect full-width horizontal LED bar, and expanded rear legroom and cargo volume for refined daily commuting and regional highway trips.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-electric"
+      ],
+      "passengerCapacity": 5,
+      "luggageCapacity": 4,
+      "transmission": "Automatic",
+      "fuelType": "Hybrid / Electrified",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Modern urban business mobility",
+        "Diplomatic & NGO Kigali commutes",
+        "Weekend trips across Rwanda"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Showroom preparation",
+        "Digital driver assistance readiness",
+        "24/7 dispatch helpline"
+      ],
+      "excludedItems": [
+        "Fuel / Charging"
+      ],
+      "primaryAssetSlot": "fleet-tucson-horizon",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-hyundai-tucson",
+      "slug": "hyundai-tucson",
+      "name": "Hyundai Tucson Plug-in Hybrid",
+      "subtitle": "Dark navy HTRAC AWD plug-in hybrid SUV combining quiet efficiency with confident grip",
+      "description": "Equipped with Hyundai HTRAC all-wheel drive and plug-in hybrid efficiency, the dark navy Tucson delivers smooth urban electric cruising, agile handling through Kigali's hills, parametric taillight styling, and generous suitcase capacity.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-electric"
+      ],
+      "passengerCapacity": 5,
+      "luggageCapacity": 3,
+      "transmission": "Automatic (6-Speed HTRAC AWD)",
+      "fuelType": "Plug-in Hybrid (PHEV)",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Daily Kigali errands & office commutes",
+        "Airport arrivals for couples & families",
+        "Efficient provincial highway trips"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "airport-transfer"
+      ],
+      "includedItems": [
+        "Full servicing & brake check",
+        "Interior air conditioning",
+        "Dedicated support contact"
+      ],
+      "excludedItems": [
+        "Fuel / Charging"
+      ],
+      "primaryAssetSlot": "fleet-tucson-main",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-passenger-van-hiace",
+      "slug": "passenger-van-hiace-class",
+      "name": "Toyota HiAce Passenger Van",
+      "subtitle": "Silver H200 high-roof 14-seater commuter van engineered for group delegations",
+      "description": "Trusted across Rwanda and East Africa for unmatched stamina and spacious headroom. Features wide sliding door access, privacy-tinted panoramic windows, seating for 14 passengers, and dependable diesel endurance for delegations and family groups.",
+      "categoryIds": [
+        "cat-van"
+      ],
+      "passengerCapacity": 14,
+      "luggageCapacity": 8,
+      "transmission": "Manual",
+      "fuelType": "Diesel",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Project teams & NGO field groups",
+        "Airport group luggage transfers",
+        "Upcountry church & family gatherings"
+      ],
+      "confirmedServices": [
+        "group-transport",
+        "wedding-event",
+        "airport-transfer"
+      ],
+      "includedItems": [
+        "Cleaned 14-seat passenger cabin",
+        "Experienced group dispatch coordination"
+      ],
+      "excludedItems": [
+        "Fuel",
+        "Driver overnight allowance on multi-day upcountry trips"
+      ],
+      "primaryAssetSlot": "fleet-hiace-main",
+      "isPublished": true,
+      "isFeatured": false,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-toyota-coaster",
+      "slug": "toyota-coaster-bus",
+      "name": "Toyota Coaster Bus",
+      "subtitle": "Air-conditioned 28–30 seater executive minibus fleet for weddings, conferences & delegations",
+      "description": "Deployed individually or in matched multi-bus convoys, our white Toyota Coaster fleet offers overhead air conditioning, comfortable high-back seats, panoramic views, and spacious luggage storage for Kigali conferences, Gusaba guests, and large delegations.",
+      "categoryIds": [
+        "cat-van",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 28,
+      "luggageCapacity": 15,
+      "transmission": "Manual",
+      "fuelType": "Diesel",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Wedding guest shuttles (Gusaba & reception)",
+        "Summit & conference delegate shuttles",
+        "Institutional & school excursions"
+      ],
+      "confirmedServices": [
+        "wedding-event",
+        "group-transport",
+        "corporate-transport"
+      ],
+      "includedItems": [
+        "Full interior sanitization",
+        "Synchronized route & venue timing dispatch"
+      ],
+      "excludedItems": [
+        "Fuel",
+        "Multi-day driver overnight stipend outside Kigali"
+      ],
+      "primaryAssetSlot": "fleet-coaster-main",
+      "isPublished": true,
+      "isFeatured": true,
+      "isArchived": false,
+      "isDemoSample": false
+    },
+    {
+      "id": "veh-land-cruiser-v8",
+      "slug": "toyota-land-cruiser-v8",
+      "name": "Toyota Land Cruiser V8",
+      "subtitle": "Flagship prestige SUV for VIP arrivals and bridal convoys",
+      "description": "Legacy VIP Land Cruiser V8 record kept for existing enquiry compatibility.",
+      "categoryIds": [
+        "cat-suv",
+        "cat-wedding"
+      ],
+      "passengerCapacity": 7,
+      "luggageCapacity": 5,
+      "transmission": "Automatic",
+      "fuelType": "Petrol / Diesel",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "VIP and delegation transport"
+      ],
+      "confirmedServices": [
+        "car-rental",
+        "wedding-event"
+      ],
+      "includedItems": [
+        "Spotless vehicle preparation"
+      ],
+      "excludedItems": [
+        "Fuel"
+      ],
+      "primaryAssetSlot": "fleet-v8-main",
+      "isPublished": false,
+      "isFeatured": false,
+      "isArchived": true,
+      "isDemoSample": true
+    },
+    {
+      "id": "veh-hyundai-starex",
+      "slug": "hyundai-starex-passenger-van",
+      "name": "Hyundai Starex Passenger Van",
+      "subtitle": "Spacious passenger minivan for family groups",
+      "description": "Legacy passenger minivan record kept for existing enquiry compatibility.",
+      "categoryIds": [
+        "cat-van"
+      ],
+      "passengerCapacity": 9,
+      "luggageCapacity": 6,
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Airport group arrivals"
+      ],
+      "confirmedServices": [
+        "group-transport",
+        "airport-transfer"
+      ],
+      "includedItems": [
+        "Vehicle preparation"
+      ],
+      "excludedItems": [
+        "Fuel"
+      ],
+      "primaryAssetSlot": "fleet-starex-main",
+      "isPublished": false,
+      "isFeatured": false,
+      "isArchived": true,
+      "isDemoSample": true
+    },
+    {
+      "id": "veh-wedding-bridal-fleet",
+      "slug": "wedding-bridal-convoy-package",
+      "name": "Wedding & Bridal Convoy Package",
+      "subtitle": "Curated multi-vehicle combination tailored for ceremonies in Rwanda",
+      "description": "Legacy bridal package record kept for existing enquiry compatibility.",
+      "categoryIds": [
+        "cat-wedding"
+      ],
+      "passengerCapacity": null,
+      "luggageCapacity": null,
+      "transmission": null,
+      "fuelType": null,
+      "dailyRateRwf": null,
+      "suitableUses": [
+        "Traditional Gusaba ceremonies"
+      ],
+      "confirmedServices": [
+        "wedding-event"
+      ],
+      "includedItems": [
+        "Custom convoy coordination"
+      ],
+      "excludedItems": [
+        "Custom flower arrangements"
+      ],
+      "primaryAssetSlot": "fleet-wedding-bridal",
+      "isPublished": false,
+      "isFeatured": false,
+      "isArchived": true,
+      "isDemoSample": true
+    }
+  ],
+  "enquiries": [
+    {
+      "id": "test-enq-001",
+      "referenceCode": "TRW-20261120-TEST",
+      "idempotencyKey": "123e4567-e89b-12d3-a456-426614174000",
+      "serviceType": "airport-transfer",
+      "status": "Contacted",
+      "pickupLocation": "Kigali International Airport (KGL)",
+      "dropoffLocation": "Kicukiro Gahanga Center",
+      "pickupDate": "2026-11-20",
+      "pickupTime": "14:30",
+      "passengerCount": 3,
+      "serviceSpecificData": {
+        "flightNumber": "WB 401"
+      },
+      "customerName": "Aimable Kayiranga",
+      "customerEmail": "aimable.kayiranga@example.com",
+      "customerPhone": "+250 784 000 111",
+      "preferredContactMethod": "whatsapp",
+      "bookingForSomeoneElse": false,
+      "privacyAccepted": true,
+      "createdAt": "2026-11-05T19:01:26.023Z",
+      "updatedAt": "2026-11-10T12:20:18.773Z",
+      "assignedVehicleId": "veh-kia-k5",
+      "assignedVehicleName": "Kia K5 Executive Sedan"
+    },
+    {
+      "id": "enq-sample-today-001",
+      "referenceCode": "TRW-20261107-T2L9",
+      "idempotencyKey": "idem-sample-001",
+      "serviceType": "airport-transfer",
+      "status": "Confirmed",
+      "pickupLocation": "Kigali International Airport (KGL)",
+      "dropoffLocation": "Gahanga Center, Kicukiro",
+      "pickupDate": "2026-11-07",
+      "pickupTime": "21:15",
+      "passengerCount": 1,
+      "serviceSpecificData": {
+        "airportDirection": "arrival",
+        "flightNumber": "WB 303 (RwandAir Dubai)",
+        "preferredVehicleSlug": "kia-k5-executive-sedan"
+      },
+      "customerName": "Claudine Mukamana",
+      "customerEmail": "c.mukamana@gmail.com",
+      "customerPhone": "+1 613 555 0194",
+      "preferredContactMethod": "whatsapp",
+      "bookingForSomeoneElse": true,
+      "travellerName": "Maman Chantal Mukamana",
+      "travellerPhone": "+250 781 223 344",
+      "customerNotes": "Booking from Ottawa for my mother arriving home. Please assist her warmly with luggage.",
+      "privacyAccepted": true,
+      "assignedVehicleId": "veh-kia-k5",
+      "assignedVehicleName": "Kia K5 Executive Sedan",
+      "driverName": "Innocent Gasana",
+      "driverPhone": "+250 783 100 200",
+      "quotedPriceRwf": 40000,
+      "createdAt": "2026-11-06T10:14:00.000Z",
+      "updatedAt": "2026-11-07T08:30:00.000Z"
+    },
+    {
+      "id": "enq-sample-tomorrow-002",
+      "referenceCode": "TRW-20261108-W7D2",
+      "idempotencyKey": "idem-sample-002",
+      "serviceType": "wedding-event",
+      "status": "Confirmed",
+      "pickupLocation": "Kigali Serena Hotel",
+      "dropoffLocation": "Intare Conference Arena, Rusororo",
+      "pickupDate": "2026-11-08",
+      "pickupTime": "08:30",
+      "passengerCount": 6,
+      "serviceSpecificData": {
+        "eventDate": "2026-11-08",
+        "venues": "Serena Hotel -> Intare Arena",
+        "approximateGuests": 150,
+        "preferredVehicleSlug": "toyota-land-cruiser-v8"
+      },
+      "customerName": "Pastor Emmanuel Nkurunziza",
+      "customerEmail": "emmanuel.nkurunziza@ecole.rw",
+      "customerPhone": "+250 788 312 901",
+      "preferredContactMethod": "phone",
+      "bookingForSomeoneElse": false,
+      "customerNotes": "Bridal convoy escort for Gusaba & church celebration. White ribbon requested.",
+      "privacyAccepted": true,
+      "assignedVehicleId": "veh-land-cruiser-v8",
+      "assignedVehicleName": "Toyota Land Cruiser V8",
+      "driverName": "Jean de Dieu Mugenzi",
+      "driverPhone": "+250 788 441 200",
+      "quotedPriceRwf": 450000,
+      "createdAt": "2026-11-04T14:22:00.000Z",
+      "updatedAt": "2026-11-06T11:00:00.000Z"
+    },
+    {
+      "id": "enq-sample-new-003",
+      "referenceCode": "TRW-20261109-A4K1",
+      "idempotencyKey": "idem-sample-003",
+      "serviceType": "airport-transfer",
+      "status": "New",
+      "pickupLocation": "Kigali International Airport (KGL)",
+      "dropoffLocation": "Radisson Blu & Kigali Convention Centre",
+      "pickupDate": "2026-11-09",
+      "pickupTime": "19:40",
+      "passengerCount": 2,
+      "serviceSpecificData": {
+        "airportDirection": "arrival",
+        "flightNumber": "SN 465 (Brussels Airlines)",
+        "preferredVehicleSlug": "toyota-land-cruiser-prado-txl"
+      },
+      "customerName": "Dr. Sarah Lindqvist",
+      "customerEmail": "s.lindqvist@globalhealth.org",
+      "customerPhone": "+32 470 123 456",
+      "preferredContactMethod": "whatsapp",
+      "bookingForSomeoneElse": false,
+      "customerNotes": "2 large medical research equipment boxes. Please meet inside arrivals hall with placard.",
+      "privacyAccepted": true,
+      "createdAt": "2026-11-07T12:05:00.000Z",
+      "updatedAt": "2026-11-07T12:05:00.000Z"
+    },
+    {
+      "id": "enq-sample-quote-004",
+      "referenceCode": "TRW-20261110-C5M8",
+      "idempotencyKey": "idem-sample-004",
+      "serviceType": "car-rental",
+      "status": "Quoted",
+      "pickupLocation": "Kicukiro Niboye, Kigali",
+      "dropoffLocation": "Musanze / Volcanoes National Park",
+      "pickupDate": "2026-11-10",
+      "pickupTime": "09:00",
+      "returnDate": "2026-11-14",
+      "returnTime": "17:00",
+      "passengerCount": 4,
+      "serviceSpecificData": {
+        "preferredVehicleSlug": "toyota-land-cruiser-prado-txl"
+      },
+      "customerName": "Patrick Habimana",
+      "customerEmail": "patrick.habimana@techrwanda.com",
+      "customerPhone": "+250 784 555 982",
+      "preferredContactMethod": "whatsapp",
+      "bookingForSomeoneElse": false,
+      "customerNotes": "4-day self-guided trip to Musanze gorilla tracking base. Prefer automatic transmission.",
+      "privacyAccepted": true,
+      "assignedVehicleId": "veh-prado-txl",
+      "assignedVehicleName": "Toyota Land Cruiser Prado TXL",
+      "quotedPriceRwf": 380000,
+      "createdAt": "2026-11-05T08:40:00.000Z",
+      "updatedAt": "2026-11-06T15:20:00.000Z"
+    },
+    {
+      "id": "enq-sample-group-005",
+      "referenceCode": "TRW-20261112-G8V3",
+      "idempotencyKey": "idem-sample-005",
+      "serviceType": "group-transport",
+      "status": "Confirmed",
+      "pickupLocation": "Four Points by Sheraton, Kigali",
+      "dropoffLocation": "Akagera National Park South Gate",
+      "pickupDate": "2026-11-12",
+      "pickupTime": "06:30",
+      "passengerCount": 18,
+      "serviceSpecificData": {
+        "preferredVehicleSlug": "toyota-coaster-bus",
+        "routeItinerarySummary": "Day retreat for visiting African civil society directors."
+      },
+      "customerName": "Grace Uwera",
+      "customerEmail": "grace.uwera@leaders.africa",
+      "customerPhone": "+250 788 777 341",
+      "preferredContactMethod": "email",
+      "bookingForSomeoneElse": false,
+      "customerNotes": "Luggage in rear compartment. Requires clean AC bus and experienced driver for eastern route.",
+      "privacyAccepted": true,
+      "assignedVehicleId": "veh-toyota-coaster",
+      "assignedVehicleName": "Toyota Coaster Bus",
+      "driverName": "Alexis Habiyambere",
+      "driverPhone": "+250 788 912 334",
+      "quotedPriceRwf": 650000,
+      "createdAt": "2026-11-03T09:12:00.000Z",
+      "updatedAt": "2026-11-05T16:00:00.000Z"
+    },
+    {
+      "id": "enq-sample-comp-006",
+      "referenceCode": "TRW-20261103-Z9P4",
+      "idempotencyKey": "idem-sample-006",
+      "serviceType": "corporate-transport",
+      "status": "Completed",
+      "pickupLocation": "Kigali Serena Hotel",
+      "dropoffLocation": "Ministry of Infrastructure (MININFRA)",
+      "pickupDate": "2026-11-03",
+      "pickupTime": "08:00",
+      "passengerCount": 3,
+      "serviceSpecificData": {
+        "preferredVehicleSlug": "kia-k5-executive-sedan"
+      },
+      "customerName": "David Ntwali",
+      "customerEmail": "david.ntwali@infrastructure.gov.rw",
+      "customerPhone": "+250 788 665 443",
+      "preferredContactMethod": "phone",
+      "bookingForSomeoneElse": false,
+      "customerNotes": "VIP delegation arrival logistics.",
+      "privacyAccepted": true,
+      "assignedVehicleId": "veh-kia-k5",
+      "assignedVehicleName": "Kia K5 Executive Sedan",
+      "driverName": "Innocent Gasana",
+      "quotedPriceRwf": 85000,
+      "createdAt": "2026-11-01T10:00:00.000Z",
+      "updatedAt": "2026-11-03T18:00:00.000Z"
+    }
+  ],
+  "statusHistory": [
+    {
+      "id": "hist-1793905286025-4j9p",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "None",
+      "newStatus": "New",
+      "changedByEmail": "System / Online Visitor",
+      "note": "Initial booking request submitted online.",
+      "createdAt": "2026-11-05T19:01:26.025Z"
+    },
+    {
+      "id": "hist-1793905286027-wx23",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "New",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-05T19:01:26.027Z"
+    },
+    {
+      "id": "hist-1794068064063-87q9",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T16:14:24.063Z"
+    },
+    {
+      "id": "hist-1794068116196-c4h2",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T16:15:16.196Z"
+    },
+    {
+      "id": "hist-1794068240023-18vm",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T16:17:20.023Z"
+    },
+    {
+      "id": "hist-1794068564251-sf8k",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T16:22:44.251Z"
+    },
+    {
+      "id": "hist-1794074696574-i6nj",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T18:04:56.574Z"
+    },
+    {
+      "id": "hist-1794079675233-hb5n",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T19:27:55.233Z"
+    },
+    {
+      "id": "hist-1794079921610-x4h2",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T19:32:01.610Z"
+    },
+    {
+      "id": "hist-1794080515258-to31",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T19:41:55.258Z"
+    },
+    {
+      "id": "hist-1794080695417-gpct",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T19:44:55.417Z"
+    },
+    {
+      "id": "hist-1794081253575-0cer",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-07T19:54:13.575Z"
+    },
+    {
+      "id": "hist-1794213923002-rjzj",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-09T08:45:23.002Z"
+    },
+    {
+      "id": "hist-1794287459848-w7fj",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T05:10:59.848Z"
+    },
+    {
+      "id": "hist-1794293989944-qwmq",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T06:59:49.944Z"
+    },
+    {
+      "id": "hist-1794302562053-hon3",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T09:22:42.053Z"
+    },
+    {
+      "id": "hist-1794302856097-b13w",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T09:27:36.097Z"
+    },
+    {
+      "id": "hist-1794304071745-d2cg",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T09:47:51.745Z"
+    },
+    {
+      "id": "hist-1794304878528-b5wr",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T10:01:18.529Z"
+    },
+    {
+      "id": "hist-1794305523710-nuuj",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T10:12:03.710Z"
+    },
+    {
+      "id": "hist-1794305986282-o1qp",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T10:19:46.282Z"
+    },
+    {
+      "id": "hist-1794307204548-ll6c",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T10:40:04.548Z"
+    },
+    {
+      "id": "hist-1794309453287-iwyp",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T11:17:33.287Z"
+    },
+    {
+      "id": "hist-1794313121620-47p7",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T12:18:41.620Z"
+    },
+    {
+      "id": "hist-1794313218773-abmb",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T12:20:18.773Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-1793905286031-ehkh",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-05T19:01:26.031Z"
+    },
+    {
+      "id": "note-1794068064067-bmes",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T16:14:24.067Z"
+    },
+    {
+      "id": "note-1794068116201-m7o9",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T16:15:16.201Z"
+    },
+    {
+      "id": "note-1794068240027-zy7g",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T16:17:20.027Z"
+    },
+    {
+      "id": "note-1794068564254-2w9w",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T16:22:44.254Z"
+    },
+    {
+      "id": "note-1794074696579-eb1t",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T18:04:56.579Z"
+    },
+    {
+      "id": "note-1794079675237-qmn0",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T19:27:55.237Z"
+    },
+    {
+      "id": "note-1794079921614-7c4k",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T19:32:01.614Z"
+    },
+    {
+      "id": "note-1794080515266-eh34",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T19:41:55.266Z"
+    },
+    {
+      "id": "note-1794080695420-l5qi",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T19:44:55.420Z"
+    },
+    {
+      "id": "note-1794081253579-ue6j",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-07T19:54:13.579Z"
+    },
+    {
+      "id": "note-1794213923006-14lb",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-09T08:45:23.006Z"
+    },
+    {
+      "id": "note-1794287459851-lbmr",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T05:10:59.851Z"
+    },
+    {
+      "id": "note-1794293989948-kpeo",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T06:59:49.948Z"
+    },
+    {
+      "id": "note-1794302562057-h6at",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T09:22:42.057Z"
+    },
+    {
+      "id": "note-1794302856105-5amd",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T09:27:36.105Z"
+    },
+    {
+      "id": "note-1794304071758-e0qq",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T09:47:51.759Z"
+    },
+    {
+      "id": "note-1794304878531-hgzq",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T10:01:18.531Z"
+    },
+    {
+      "id": "note-1794305523714-x73u",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T10:12:03.714Z"
+    },
+    {
+      "id": "note-1794305986284-n3kd",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T10:19:46.284Z"
+    },
+    {
+      "id": "note-1794307204551-pg8y",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T10:40:04.551Z"
+    },
+    {
+      "id": "note-1794309453291-xto8",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T11:17:33.291Z"
+    },
+    {
+      "id": "note-1794313121624-0s94",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T12:18:41.624Z"
+    },
+    {
+      "id": "note-1794313218777-9koy",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T12:20:18.777Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1793905286034-u6d3",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-05T19:01:26.033Z"
+    },
+    {
+      "id": "notif-1794068116207-5jio",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T16:15:16.205Z"
+    },
+    {
+      "id": "notif-1794068240032-q35n",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T16:17:20.030Z"
+    },
+    {
+      "id": "notif-1794068564257-g4ii",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T16:22:44.256Z"
+    },
+    {
+      "id": "notif-1794074696585-v7zb",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T18:04:56.582Z"
+    },
+    {
+      "id": "notif-1794079675239-fdx0",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T19:27:55.239Z"
+    },
+    {
+      "id": "notif-1794079921617-smpt",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T19:32:01.616Z"
+    },
+    {
+      "id": "notif-1794080515272-0336",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T19:41:55.271Z"
+    },
+    {
+      "id": "notif-1794080695424-ail5",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T19:44:55.423Z"
+    },
+    {
+      "id": "notif-1794081253582-o9r4",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-07T19:54:13.581Z"
+    },
+    {
+      "id": "notif-1794213923011-pk52",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-09T08:45:23.009Z"
+    },
+    {
+      "id": "notif-1794287459853-nsjm",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T05:10:59.853Z"
+    },
+    {
+      "id": "notif-1794293989951-rqhy",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T06:59:49.950Z"
+    },
+    {
+      "id": "notif-1794302562060-3618",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T09:22:42.059Z"
+    },
+    {
+      "id": "notif-1794302856112-emsa",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T09:27:36.110Z"
+    },
+    {
+      "id": "notif-1794304071773-h4fp",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T09:47:51.770Z"
+    },
+    {
+      "id": "notif-1794304878536-6n7v",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T10:01:18.533Z"
+    },
+    {
+      "id": "notif-1794305523718-0kgm",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T10:12:03.717Z"
+    },
+    {
+      "id": "notif-1794305986288-jyjd",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T10:19:46.287Z"
+    },
+    {
+      "id": "notif-1794307204555-vilo",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T10:40:04.554Z"
+    },
+    {
+      "id": "notif-1794309453294-6ylf",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T11:17:33.294Z"
+    },
+    {
+      "id": "notif-1794313121628-0mmo",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T12:18:41.627Z"
+    },
+    {
+      "id": "notif-1794313218780-i7tw",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T12:20:18.779Z"
+    }
+  ]
+}

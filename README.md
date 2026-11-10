@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Travel Rwanda — Transport Services
+**Premium Ground Transport, Car Rental & Booking Enquiry Platform**
+
+> “Arrive with confidence. Travel in comfort.”
+
+Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and server-side data persistence designed for cloud deployment on Vercel / Node.js and Supabase PostgreSQL.
+
+---
+
+## Key Highlights & Design Directives
+
+1. **Zero Stock or Synthetic AI Images**: Every image across the platform uses an architectural placeholder framework mapped via `src/lib/assets.ts`. Visual frames display exact target file paths, aspect ratios, and dimensions so real fleet photos can be dropped into `/public/images/...` seamlessly.
+2. **Controlled Hospitality Palette**:
+   - Forest Green: `#0B3D2E`
+   - Deeper Green: `#06281E`
+   - Warm Ivory: `#F7F6F2`
+   - Charcoal: `#171D19`
+   - Muted Champagne: `#BCA77B` (used strictly as an accent)
+3. **Structured 4-Step Booking Wizard (`/plan-your-journey`)**:
+   - Step 1: Service Selection (Rental, Airport Transfer, Wedding Convoy, Group Transport, Corporate).
+   - Step 2: Journey Logistics with Africa/Kigali local time validation and conditional fields (e.g. flight number tracking for KGL airport transfers).
+   - Step 3: Contact & Third-Party Traveller Details (book from abroad for family in Rwanda).
+   - Step 4: Summary, Privacy Acknowledgement, Server Idempotency, and Honeypot anti-spam.
+   - Status issued upon save: Non-sequential reference code (e.g. `TRW-20261105-8F3K`) with clear *"Request received — pending confirmation"* notice.
+4. **Administrative Operations Portal (`/admin`)**:
+   - Status workflow (`New` → `Contacted` → `Quoted` → `Confirmed` → `Completed` → `Cancelled`).
+   - Mandatory manual vehicle assignment reminder before confirming reservations.
+   - Private staff notes and immutable status history audit log.
+   - Live readiness checklist tracking SMTP configuration, contact email verification, and placeholder image counts.
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Install & Run Locally
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Visit `http://localhost:3000` in your browser.
+
+### 2. Access Admin Portal
+- URL: `http://localhost:3000/admin`
+- Email: `admin@travelrwanda.rw`
+- Password: `Rwanda2026!Admin` (Set in `.env.local`)
+
+### 3. Verification & Type Checking
+```bash
+# Run TypeScript type check
+npx tsc --noEmit
+
+# Run production build
+npm run build
+
+# Run automated backend & idempotency verification suite
+npx tsx scripts/test-suite.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Database Migrations
+Supabase PostgreSQL migrations with least-privilege Row-Level Security (RLS) are located in:
+`supabase/migrations/001_initial_schema.sql`
