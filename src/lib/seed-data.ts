@@ -115,6 +115,90 @@ export interface NotificationLogItem {
   lastAttemptAt: string;
 }
 
+export interface InvoiceLineItem {
+  id: string;
+  description: string;
+  quantity: number;
+  unitPriceRwf: number;
+  totalRwf: number;
+}
+
+export interface InvoiceRecord {
+  id: string;
+  invoiceNumber: string; // e.g. INV-202611-0001
+  enquiryId?: string | null;
+  referenceCode?: string | null;
+  issueDate: string; // YYYY-MM-DD
+  dueDate: string; // YYYY-MM-DD
+  status: "Draft" | "Issued" | "Paid" | "Partially Paid" | "Overdue" | "Cancelled";
+
+  // Client Details
+  clientName: string;
+  clientCompany?: string | null;
+  clientPhone: string;
+  clientEmail?: string | null;
+  clientAddress?: string | null;
+  clientTin?: string | null;
+
+  // Journey Logistics
+  serviceType?: string | null;
+  pickupLocation?: string | null;
+  dropoffLocation?: string | null;
+  pickupDate?: string | null;
+  pickupTime?: string | null;
+  returnDate?: string | null;
+  returnTime?: string | null;
+  vehicleName?: string | null;
+  driverName?: string | null;
+  driverPhone?: string | null;
+  passengerCount?: number | null;
+  flightNumber?: string | null;
+
+  // Items & Pricing
+  items: InvoiceLineItem[];
+  subtotalRwf: number;
+  taxRatePercent: number; // 0 or 18% Rwanda VAT
+  taxAmountRwf: number;
+  discountRwf: number;
+  totalRwf: number;
+  currency: "RWF" | "USD";
+
+  // Official Payment Details
+  paymentMethod?: string | null;
+  paymentReference?: string | null;
+  bankName?: string | null;
+  bankAccountNumber?: string | null;
+  bankAccountName?: string | null;
+  momoMerchantCode?: string | null;
+
+  // Notes & Dispatcher
+  notes?: string | null;
+  termsAndConditions?: string | null;
+  issuedByEmail: string;
+
+  createdAt: string;
+  updatedAt: string;
+}
+
+export const COMPANY_INVOICE_DETAILS = {
+  name: "TRAVEL RWANDA TRANSPORT SERVICES",
+  legalName: "Travel Rwanda Ltd",
+  descriptor: "Licensed VIP Chauffeur, Airport Transfers & Fleet Hire",
+  address: "Kicukiro, Gahanga Center, Kigali - Rwanda",
+  tin: "120 488 950",
+  phonePrimary: "+250 784 129 579",
+  phoneSecondary: "+250 781 782 882",
+  email: "info@travelrwanda.rw",
+  website: "www.travelrwanda.rw",
+  bankName: "Bank of Kigali (BK)",
+  bankAccountName: "Travel Rwanda Ltd",
+  bankAccountNumber: "00040-0698421-33",
+  bankSwift: "BKIGRWRW",
+  momoMerchantCode: "841295",
+  momoDialCode: "*182*8*1*841295#",
+  defaultTerms: "Payment terms: 50% deposit upon booking confirmation, balance upon vehicle dispatch or arrival. Rates include certified professional driver and comprehensive insurance. Fuel policy as specified per journey schedule.",
+};
+
 // Default Verified Settings
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   brandName: "Travel Rwanda",

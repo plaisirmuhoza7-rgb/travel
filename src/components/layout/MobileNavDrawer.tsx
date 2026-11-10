@@ -19,6 +19,15 @@ export function MobileNavDrawer({ navLinks }: { navLinks: NavLinkItem[] }) {
   const pathname = stripLocalePrefix(rawPathname);
   const { dict } = useI18n();
 
+  const labelByHref: Record<string, string> = {
+    "/": dict.nav.home,
+    "/fleet": dict.nav.fleet,
+    "/services": dict.nav.services,
+    "/events": dict.nav.events,
+    "/about": dict.nav.about,
+    "/contact": dict.nav.contact,
+  };
+
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -57,6 +66,7 @@ export function MobileNavDrawer({ navLinks }: { navLinks: NavLinkItem[] }) {
                 pathname === link.href ||
                 (link.href === "/fleet" &&
                   (pathname.startsWith("/fleet") || pathname.startsWith("/vehicles")));
+              const displayLabel = labelByHref[link.href] ?? link.label;
 
               return (
                 <Link
@@ -69,12 +79,15 @@ export function MobileNavDrawer({ navLinks }: { navLinks: NavLinkItem[] }) {
                       : "text-[#475569] hover:bg-slate-50 hover:text-[#0F284E]"
                   }`}
                 >
-                  {link.label}
+                  {displayLabel}
                 </Link>
               );
             })}
             <div className="mt-4 pt-4 border-t border-[#E2E8F0] flex flex-col gap-3">
-              <LanguageSwitcher variant="drawer" />
+              <LanguageSwitcher
+                variant="drawer"
+                onSwitch={() => setMobileMenuOpen(false)}
+              />
               <a
                 href="tel:+250784129579"
                 className="flex items-center gap-2 text-sm font-bold text-[#0F284E] px-3.5"

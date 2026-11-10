@@ -1,35 +1,44 @@
 "use client";
 
 import React from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 import { useI18n } from "@/components/i18n/LocaleProvider";
 import { Locale, stripLocalePrefix } from "@/lib/i18n/config";
 
 interface LanguageSwitcherProps {
-  variant?: "header" | "drawer" | "footer" | "admin";
+  variant?: "header" | "drawer" | "footer" | "admin" | "darkgreen";
   className?: string;
+  onSwitch?: () => void;
 }
 
 export function LanguageSwitcher({
   variant = "header",
   className = "",
+  onSwitch,
 }: LanguageSwitcherProps) {
   const { locale, dict, setLocale } = useI18n();
   const pathname = usePathname() || "/";
-  const router = useRouter();
 
   const handleSelect = (nextLocale: Locale) => {
     if (nextLocale === locale) return;
     setLocale(nextLocale);
+    onSwitch?.();
 
-    const strippedPath = stripLocalePrefix(pathname);
-    if (strippedPath !== pathname) {
-      const search =
-        typeof window !== "undefined" ? window.location.search : "";
-      router.replace(`${strippedPath}${search}`, { scroll: false });
-    }
-    router.refresh();
+    if (typeof window === "undefined") return;
+
+    const currentPathname = window.location.pathname || pathname;
+    const strippedPath = stripLocalePrefix(currentPathname);
+    const params = new URLSearchParams(window.location.search);
+    params.set("lang", nextLocale);
+    const qs = params.toString();
+    const targetUrl = qs ? `${strippedPath}?${qs}` : strippedPath;
+
+    // Hard browser navigation to /api/locale ensures HTTP Set-Cookie, CDN cache-key bypass (?lang=), and full SSR re-render without stale prefetched RSC Router Cache
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    window.location.assign(
+      `/api/locale?lang=${nextLocale}&redirect=${encodeURIComponent(targetUrl)}`
+    );
   };
 
   if (variant === "admin") {
@@ -51,7 +60,7 @@ export function LanguageSwitcher({
             onClick={() => handleSelect("en")}
             aria-label={dict.nav.switchToEnglish}
             aria-pressed={locale === "en"}
-            className={`rounded px-2 py-0.5 text-[11px] font-extrabold transition-colors ${
+            className={`cursor-pointer rounded px-2 py-0.5 text-[11px] font-extrabold transition-colors ${
               locale === "en"
                 ? "bg-[#FACC15] text-[#091A34]"
                 : "text-slate-300 hover:text-white"
@@ -64,7 +73,7 @@ export function LanguageSwitcher({
             onClick={() => handleSelect("fr")}
             aria-label={dict.nav.switchToFrench}
             aria-pressed={locale === "fr"}
-            className={`rounded px-2 py-0.5 text-[11px] font-extrabold transition-colors ${
+            className={`cursor-pointer rounded px-2 py-0.5 text-[11px] font-extrabold transition-colors ${
               locale === "fr"
                 ? "bg-[#FACC15] text-[#091A34]"
                 : "text-slate-300 hover:text-white"
@@ -90,7 +99,7 @@ export function LanguageSwitcher({
           onClick={() => handleSelect("en")}
           aria-label={dict.nav.switchToEnglish}
           aria-pressed={locale === "en"}
-          className={`rounded px-2 py-0.5 text-xs font-extrabold transition-colors ${
+          className={`cursor-pointer rounded px-2 py-0.5 text-xs font-extrabold transition-colors ${
             locale === "en"
               ? "bg-[#FACC15] text-[#061226]"
               : "text-white/80 hover:text-white"
@@ -103,7 +112,7 @@ export function LanguageSwitcher({
           onClick={() => handleSelect("fr")}
           aria-label={dict.nav.switchToFrench}
           aria-pressed={locale === "fr"}
-          className={`rounded px-2 py-0.5 text-xs font-extrabold transition-colors ${
+          className={`cursor-pointer rounded px-2 py-0.5 text-xs font-extrabold transition-colors ${
             locale === "fr"
               ? "bg-[#FACC15] text-[#061226]"
               : "text-white/80 hover:text-white"
@@ -134,7 +143,7 @@ export function LanguageSwitcher({
             onClick={() => handleSelect("en")}
             aria-label={dict.nav.switchToEnglish}
             aria-pressed={locale === "en"}
-            className={`rounded-md px-2.5 py-1 text-xs font-extrabold transition-colors ${
+            className={`cursor-pointer rounded-md px-2.5 py-1 text-xs font-extrabold transition-colors ${
               locale === "en"
                 ? "bg-[#0F284E] text-white"
                 : "text-[#475569] hover:text-[#0F284E]"
@@ -147,7 +156,7 @@ export function LanguageSwitcher({
             onClick={() => handleSelect("fr")}
             aria-label={dict.nav.switchToFrench}
             aria-pressed={locale === "fr"}
-            className={`rounded-md px-2.5 py-1 text-xs font-extrabold transition-colors ${
+            className={`cursor-pointer rounded-md px-2.5 py-1 text-xs font-extrabold transition-colors ${
               locale === "fr"
                 ? "bg-[#0F284E] text-white"
                 : "text-[#475569] hover:text-[#0F284E]"
@@ -156,6 +165,43 @@ export function LanguageSwitcher({
             FR
           </button>
         </div>
+      </div>
+    );
+  }
+
+  if (variant === "darkgreen") {
+    return (
+      <div
+        className={`inline-flex items-center rounded-lg border border-[#10B981]/25 bg-[#ECFDF5]/70 p-0.5 shadow-2xs shrink-0 ${className}`}
+        role="group"
+        aria-label={dict.nav.languageLabel}
+      >
+        <button
+          type="button"
+          onClick={() => handleSelect("en")}
+          aria-label={dict.nav.switchToEnglish}
+          aria-pressed={locale === "en"}
+          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+            locale === "en"
+              ? "bg-[#063726] text-[#FACC15] shadow-2xs"
+              : "text-[#063726]/70 hover:text-[#042419]"
+          }`}
+        >
+          EN
+        </button>
+        <button
+          type="button"
+          onClick={() => handleSelect("fr")}
+          aria-label={dict.nav.switchToFrench}
+          aria-pressed={locale === "fr"}
+          className={`cursor-pointer rounded-md px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+            locale === "fr"
+              ? "bg-[#063726] text-[#FACC15] shadow-2xs"
+              : "text-[#063726]/70 hover:text-[#042419]"
+          }`}
+        >
+          FR
+        </button>
       </div>
     );
   }
@@ -171,7 +217,7 @@ export function LanguageSwitcher({
         onClick={() => handleSelect("en")}
         aria-label={dict.nav.switchToEnglish}
         aria-pressed={locale === "en"}
-        className={`rounded-md px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+        className={`cursor-pointer rounded-md px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
           locale === "en"
             ? "bg-[#0F284E] text-white shadow-2xs"
             : "text-[#475569] hover:text-[#0F284E]"
@@ -184,7 +230,7 @@ export function LanguageSwitcher({
         onClick={() => handleSelect("fr")}
         aria-label={dict.nav.switchToFrench}
         aria-pressed={locale === "fr"}
-        className={`rounded-md px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
+        className={`cursor-pointer rounded-md px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-colors ${
           locale === "fr"
             ? "bg-[#0F284E] text-white shadow-2xs"
             : "text-[#475569] hover:text-[#0F284E]"

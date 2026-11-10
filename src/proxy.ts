@@ -53,14 +53,41 @@ export function proxy(request: NextRequest) {
   }
 
   if (isLocale(queryLang) || pathLocale) {
+    const forwardedProto = request.headers
+      .get("x-forwarded-proto")
+      ?.split(",")[0]
+      ?.trim()
+      .toLowerCase();
+    const isHttps =
+      forwardedProto === "https" ||
+      (forwardedProto !== "http" && request.nextUrl.protocol === "https:");
+
     response.cookies.set({
       name: LOCALE_COOKIE_NAME,
       value: resolvedLocale,
       path: "/",
       maxAge: 60 * 60 * 24 * 365,
       sameSite: "lax",
+      httpOnly: false,
+      secure: isHttps,
     });
   }
+
+  // Prevent intermediate CDNs / reverse proxies from caching English and French HTML/RSC together
+  const existingVary = response.headers.get("Vary");
+  const varyValues = new Set(
+    (existingVary || "")
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean)
+  );
+  varyValues.add("Cookie");
+  response.headers.set("Vary", Array.from(varyValues).join(", "));
+  response.headers.set(
+    "Cache-Control",
+    "private, no-cache, no-store, max-age=0, must-revalidate"
+  );
+  response.headers.set("Pragma", "no-cache");
 
   return response;
 }

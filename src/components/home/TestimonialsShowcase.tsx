@@ -29,7 +29,7 @@ const MARQUEE_CSS = `
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: trTestimonialsGlide 26s linear infinite;
+  animation: trTestimonialsGlide 120s linear infinite;
 }
 
 .tr-testimonials-viewport:hover .tr-testimonials-track {

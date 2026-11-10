@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/lib/i18n/config";
+import { useI18n } from "@/components/i18n/LocaleProvider";
 
 interface NavLinkItem {
   label: string;
@@ -13,26 +14,37 @@ interface NavLinkItem {
 export function DesktopNav({ links }: { links: NavLinkItem[] }) {
   const rawPathname = usePathname() || "/";
   const pathname = stripLocalePrefix(rawPathname);
+  const { dict } = useI18n();
+
+  const labelByHref: Record<string, string> = {
+    "/": dict.nav.home,
+    "/fleet": dict.nav.fleet,
+    "/services": dict.nav.services,
+    "/events": dict.nav.events,
+    "/about": dict.nav.about,
+    "/contact": dict.nav.contact,
+  };
 
   return (
-    <nav className="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-7">
+    <nav className="hidden md:flex items-center gap-2.5 lg:gap-5 xl:gap-7">
       {links.map((link) => {
         const isActive =
           pathname === link.href ||
           (link.href === "/fleet" &&
             (pathname.startsWith("/fleet") || pathname.startsWith("/vehicles")));
+        const displayLabel = labelByHref[link.href] ?? link.label;
 
         return (
           <Link
             key={link.href}
             href={link.href}
-            className={`text-sm font-semibold transition-all relative py-1 whitespace-nowrap ${
+            className={`text-xs lg:text-sm font-semibold transition-all relative py-1 whitespace-nowrap ${
               isActive
                 ? "text-[#0F284E] font-extrabold"
                 : "text-[#475569] hover:text-[#0F284E]"
             }`}
           >
-            <span>{link.label}</span>
+            <span>{displayLabel}</span>
             {isActive && (
               <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-[#0F284E]" />
             )}

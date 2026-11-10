@@ -689,7 +689,7 @@
       "bookingForSomeoneElse": false,
       "privacyAccepted": true,
       "createdAt": "2026-11-05T19:01:26.023Z",
-      "updatedAt": "2026-11-10T12:20:18.773Z",
+      "updatedAt": "2026-11-10T13:08:45.088Z",
       "assignedVehicleId": "veh-kia-k5",
       "assignedVehicleName": "Kia K5 Executive Sedan"
     },
@@ -1097,6 +1097,24 @@
       "changedByEmail": "admin@travelrwanda.rw",
       "note": "Verified airport arrival schedule with client on WhatsApp.",
       "createdAt": "2026-11-10T12:20:18.773Z"
+    },
+    {
+      "id": "hist-1794315376596-auzl",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T12:56:16.596Z"
+    },
+    {
+      "id": "hist-1794316125088-m1ga",
+      "enquiryId": "test-enq-001",
+      "previousStatus": "Contacted",
+      "newStatus": "Contacted",
+      "changedByEmail": "admin@travelrwanda.rw",
+      "note": "Verified airport arrival schedule with client on WhatsApp.",
+      "createdAt": "2026-11-10T13:08:45.088Z"
     }
   ],
   "notes": [
@@ -1267,6 +1285,20 @@
       "authorEmail": "admin@travelrwanda.rw",
       "body": "Client arriving on delayed RwandAir flight.",
       "createdAt": "2026-11-10T12:20:18.777Z"
+    },
+    {
+      "id": "note-1794315376601-fy40",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T12:56:16.601Z"
+    },
+    {
+      "id": "note-1794316125092-x7v9",
+      "enquiryId": "test-enq-001",
+      "authorEmail": "admin@travelrwanda.rw",
+      "body": "Client arriving on delayed RwandAir flight.",
+      "createdAt": "2026-11-10T13:08:45.092Z"
     }
   ],
   "notifications": [
@@ -1499,6 +1531,187 @@
       "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
       "attemptCount": 1,
       "lastAttemptAt": "2026-11-10T12:20:18.779Z"
+    },
+    {
+      "id": "notif-1794315376605-pil8",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T12:56:16.604Z"
+    },
+    {
+      "id": "notif-1794316125097-9tbp",
+      "enquiryId": "test-enq-001",
+      "recipientType": "staff",
+      "recipientEmail": "info@travelrwanda.rw",
+      "status": "unconfigured",
+      "errorMessage": "SMTP_USER or SMTP_APP_PASSWORD is not set in environment variables.",
+      "attemptCount": 1,
+      "lastAttemptAt": "2026-11-10T13:08:45.096Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv-sample-001",
+      "invoiceNumber": "INV-20261108-W7D2",
+      "enquiryId": "enq-sample-tomorrow-002",
+      "referenceCode": "TRW-20261108-W7D2",
+      "issueDate": "2026-11-06",
+      "dueDate": "2026-11-08",
+      "status": "Paid",
+      "clientName": "Pastor Emmanuel Nkurunziza",
+      "clientCompany": "Grace Community Rwanda",
+      "clientPhone": "+250 788 312 901",
+      "clientEmail": "emmanuel.nkurunziza@ecole.rw",
+      "clientAddress": "Kigali, Rwanda",
+      "clientTin": "100 488 231",
+      "serviceType": "wedding-event",
+      "pickupLocation": "Kigali Serena Hotel",
+      "dropoffLocation": "Intare Conference Arena, Rusororo",
+      "pickupDate": "2026-11-08",
+      "pickupTime": "08:30",
+      "vehicleName": "Toyota Land Cruiser V8",
+      "driverName": "Jean de Dieu Mugenzi",
+      "driverPhone": "+250 788 441 200",
+      "passengerCount": 6,
+      "items": [
+        {
+          "id": "item-inv-1",
+          "description": "VIP Bridal Lead Vehicle - Toyota Land Cruiser V8 (Full Day Gusaba & Church Reception)",
+          "quantity": 1,
+          "unitPriceRwf": 350000,
+          "totalRwf": 350000
+        },
+        {
+          "id": "item-inv-2",
+          "description": "Dedicated Convoy Dispatch Coordination & White Ribbon Dressing",
+          "quantity": 1,
+          "unitPriceRwf": 100000,
+          "totalRwf": 100000
+        }
+      ],
+      "subtotalRwf": 450000,
+      "taxRatePercent": 0,
+      "taxAmountRwf": 0,
+      "discountRwf": 0,
+      "totalRwf": 450000,
+      "currency": "RWF",
+      "bankName": "Bank of Kigali (BK)",
+      "bankAccountNumber": "00040-0698421-33",
+      "bankAccountName": "Travel Rwanda Ltd",
+      "momoMerchantCode": "841295",
+      "paymentMethod": "Bank Transfer (BK Wire)",
+      "paymentReference": "BK-TX-8849201",
+      "notes": "Official Bridal Convoy Transport Invoice. Paid in full via Bank of Kigali transfer. Driver assigned and vehicle polished for dispatch.",
+      "termsAndConditions": "Payment terms: 50% deposit upon booking confirmation, balance upon vehicle dispatch or arrival. Rates include certified professional driver and comprehensive insurance. Fuel policy as specified per journey schedule.",
+      "issuedByEmail": "admin@travelrwanda.rw",
+      "createdAt": "2026-11-06T11:30:00.000Z",
+      "updatedAt": "2026-11-07T09:00:00.000Z"
+    },
+    {
+      "id": "inv-sample-002",
+      "invoiceNumber": "INV-20261107-T2L9",
+      "enquiryId": "enq-sample-today-001",
+      "referenceCode": "TRW-20261107-T2L9",
+      "issueDate": "2026-11-06",
+      "dueDate": "2026-11-07",
+      "status": "Paid",
+      "clientName": "Claudine Mukamana",
+      "clientCompany": null,
+      "clientPhone": "+1 613 555 0194",
+      "clientEmail": "c.mukamana@gmail.com",
+      "clientAddress": "Ottawa / Gahanga, Kigali",
+      "clientTin": null,
+      "serviceType": "airport-transfer",
+      "pickupLocation": "Kigali International Airport (KGL)",
+      "dropoffLocation": "Gahanga Center, Kicukiro",
+      "pickupDate": "2026-11-07",
+      "pickupTime": "21:15",
+      "vehicleName": "Kia K5 Executive Sedan",
+      "driverName": "Innocent Gasana",
+      "driverPhone": "+250 783 100 200",
+      "passengerCount": 1,
+      "flightNumber": "WB 303 (RwandAir Dubai)",
+      "items": [
+        {
+          "id": "item-inv-3",
+          "description": "VIP Airport Transfer (KGL Arrival) - Kia K5 Executive Sedan with Meet & Greet Placard",
+          "quantity": 1,
+          "unitPriceRwf": 40000,
+          "totalRwf": 40000
+        }
+      ],
+      "subtotalRwf": 40000,
+      "taxRatePercent": 0,
+      "taxAmountRwf": 0,
+      "discountRwf": 0,
+      "totalRwf": 40000,
+      "currency": "RWF",
+      "bankName": "Bank of Kigali (BK)",
+      "bankAccountNumber": "00040-0698421-33",
+      "bankAccountName": "Travel Rwanda Ltd",
+      "momoMerchantCode": "841295",
+      "paymentMethod": "MTN Mobile Money",
+      "paymentReference": "MOMO-991203",
+      "notes": "Passenger: Maman Chantal Mukamana (+250 781 223 344). Flight WB 303 arrival. Driver waiting in arrivals hall with name placard.",
+      "termsAndConditions": "Payment terms: 50% deposit upon booking confirmation, balance upon vehicle dispatch or arrival. Rates include certified professional driver and comprehensive insurance. Fuel policy as specified per journey schedule.",
+      "issuedByEmail": "admin@travelrwanda.rw",
+      "createdAt": "2026-11-06T15:00:00.000Z",
+      "updatedAt": "2026-11-07T08:30:00.000Z"
+    },
+    {
+      "id": "inv-sample-003",
+      "invoiceNumber": "INV-20261110-C5M8",
+      "enquiryId": "enq-sample-quote-004",
+      "referenceCode": "TRW-20261110-C5M8",
+      "issueDate": "2026-11-08",
+      "dueDate": "2026-11-10",
+      "status": "Issued",
+      "clientName": "Patrick Habimana",
+      "clientCompany": "Tech Rwanda Innovations",
+      "clientPhone": "+250 784 555 982",
+      "clientEmail": "patrick.habimana@techrwanda.com",
+      "clientAddress": "Kicukiro Niboye, Kigali",
+      "clientTin": "101 928 344",
+      "serviceType": "car-rental",
+      "pickupLocation": "Kicukiro Niboye, Kigali",
+      "dropoffLocation": "Musanze / Volcanoes National Park",
+      "pickupDate": "2026-11-10",
+      "pickupTime": "09:00",
+      "returnDate": "2026-11-14",
+      "returnTime": "17:00",
+      "vehicleName": "Toyota Land Cruiser Prado TXL",
+      "driverName": "Assigned upon departure",
+      "passengerCount": 4,
+      "items": [
+        {
+          "id": "item-inv-4",
+          "description": "Toyota Land Cruiser Prado TXL - Premium 4x4 Multi-Day Hire (Kigali to Musanze)",
+          "quantity": 4,
+          "unitPriceRwf": 95000,
+          "totalRwf": 380000
+        }
+      ],
+      "subtotalRwf": 380000,
+      "taxRatePercent": 0,
+      "taxAmountRwf": 0,
+      "discountRwf": 0,
+      "totalRwf": 380000,
+      "currency": "RWF",
+      "bankName": "Bank of Kigali (BK)",
+      "bankAccountNumber": "00040-0698421-33",
+      "bankAccountName": "Travel Rwanda Ltd",
+      "momoMerchantCode": "841295",
+      "paymentMethod": "MTN Mobile Money / Bank Transfer",
+      "paymentReference": "INV-20261110-C5M8",
+      "notes": "4-day upcountry booking to Volcanoes National Park. Fuel provided at level 4/4; return at same reading.",
+      "termsAndConditions": "Payment terms: 50% deposit upon booking confirmation, balance upon vehicle dispatch or arrival. Rates include certified professional driver and comprehensive insurance. Fuel policy as specified per journey schedule.",
+      "issuedByEmail": "admin@travelrwanda.rw",
+      "createdAt": "2026-11-08T10:00:00.000Z",
+      "updatedAt": "2026-11-08T10:00:00.000Z"
     }
   ]
 }

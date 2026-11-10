@@ -83,13 +83,6 @@ export const en: Dictionary = {
     staffPortal: "Staff Portal",
   },
 
-  mobileBar: {
-    whatsapp: "WhatsApp",
-    whatsappGreeting:
-      "Hello Travel Rwanda, I would like to enquire about transport.",
-    planJourney: "Plan Journey",
-  },
-
   notFound: {
     eyebrow: "Error 404",
     title: "Page Not Found",
@@ -1180,6 +1173,7 @@ export const en: Dictionary = {
     layout: {
       adminControlCenter: "Admin Control Center",
       bookingsDashboard: "Bookings Dashboard",
+      invoices: "Invoices & Billing",
       fleetAssets: "Fleet & Assets",
       settings: "Settings",
       signedInAs: "Signed in as:",
@@ -1190,8 +1184,33 @@ export const en: Dictionary = {
       portalTitle: "Travel Rwanda Staff Portal",
       portalSubtitle:
         "Authorized administrative access for enquiry dispatch & fleet management.",
+      portalBadge: "Dispatch Command",
+      backToSite: "Back to site",
+      showcaseEyebrow: "Kigali Dispatch · 24/7",
+      showcaseTag: "KGL · Fleet Hub",
+      showcaseTitleLine1: "Arrive with confidence.",
+      showcaseTitleLine2: "Travel in comfort.",
+      showcaseSubtitle:
+        "Coordinate Kigali Airport arrivals, 4x4 safari fleets, and executive reservations from one unified workspace.",
+      showcaseImageAlt:
+        "Travel Rwanda chauffeur handing over keys beside a luxury black SUV",
+      showcaseHighlights: [
+        { label: "Booking Pipeline", detail: "Live enquiries & quotes" },
+        { label: "Fleet Readiness", detail: "Prado TXL · V8 · Coaster" },
+        { label: "Operations Base", detail: "Kicukiro, Gahanga Center" },
+      ],
+      testModeBadge: "Testing Access Active",
+      testModeDescription:
+        "Any email or password — even incorrect credentials — will sign you in right now for testing.",
+      fillDemoBtn: "Fill demo",
       staffEmail: "Staff Email",
+      emailPlaceholder: "staff@travelrwanda.rw",
       password: "Password",
+      passwordHint: "Any value accepted in test mode",
+      showPassword: "Show password",
+      hidePassword: "Hide password",
+      sessionNote: "7-day encrypted staff session",
+      needHelp: "Need dispatch help?",
       authenticating: "Authenticating...",
       signIn: "Sign In to Admin",
       devNoteBefore:

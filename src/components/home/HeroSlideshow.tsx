@@ -5,28 +5,28 @@ import { getServerDictionary } from "@/lib/i18n/server";
 
 const HERO_KEYFRAMES = `
 @keyframes trHeroSlideFade2 {
-  0%, 28% { opacity: 0; }
-  33%, 67% { opacity: 1; }
-  70%, 100% { opacity: 0; }
+  0%, 26% { opacity: 0; }
+  33.3%, 68% { opacity: 1; }
+  74%, 100% { opacity: 0; }
 }
 @keyframes trHeroSlideFade3 {
-  0%, 61% { opacity: 0; }
-  66%, 95% { opacity: 1; }
+  0%, 59.3% { opacity: 0; }
+  66.7%, 92.7% { opacity: 1; }
   100% { opacity: 0; }
 }
 @keyframes trHeroDot1 {
-  0%, 28% { width: 36px; background-color: #FACC15; }
-  33%, 95% { width: 12px; background-color: rgba(255,255,255,0.5); }
+  0%, 26% { width: 36px; background-color: #FACC15; }
+  33.3%, 92.7% { width: 12px; background-color: rgba(255,255,255,0.5); }
   100% { width: 36px; background-color: #FACC15; }
 }
 @keyframes trHeroDot2 {
-  0%, 28% { width: 12px; background-color: rgba(255,255,255,0.5); }
-  33%, 61% { width: 36px; background-color: #FACC15; }
-  66%, 100% { width: 12px; background-color: rgba(255,255,255,0.5); }
+  0%, 26% { width: 12px; background-color: rgba(255,255,255,0.5); }
+  33.3%, 59.3% { width: 36px; background-color: #FACC15; }
+  66.7%, 100% { width: 12px; background-color: rgba(255,255,255,0.5); }
 }
 @keyframes trHeroDot3 {
-  0%, 61% { width: 12px; background-color: rgba(255,255,255,0.5); }
-  66%, 95% { width: 36px; background-color: #FACC15; }
+  0%, 59.3% { width: 12px; background-color: rgba(255,255,255,0.5); }
+  66.7%, 92.7% { width: 36px; background-color: #FACC15; }
   100% { width: 12px; background-color: rgba(255,255,255,0.5); }
 }
 `;
@@ -61,7 +61,8 @@ export async function HeroSlideshow() {
       <div
         style={{
           zIndex: 2,
-          animation: "trHeroSlideFade2 13.5s infinite ease-in-out",
+          willChange: "opacity",
+          animation: "trHeroSlideFade2 45s infinite ease-in-out",
         }}
         className="absolute inset-0 pointer-events-none"
       >
@@ -80,7 +81,8 @@ export async function HeroSlideshow() {
       <div
         style={{
           zIndex: 3,
-          animation: "trHeroSlideFade3 13.5s infinite ease-in-out",
+          willChange: "opacity",
+          animation: "trHeroSlideFade3 45s infinite ease-in-out",
         }}
         className="absolute inset-0 pointer-events-none"
       >
@@ -214,7 +216,7 @@ export async function HeroSlideshow() {
                 width: "36px",
                 backgroundColor: "#FACC15",
                 borderRadius: "9999px",
-                animation: "trHeroDot1 13.5s infinite ease-in-out",
+                animation: "trHeroDot1 45s infinite ease-in-out",
               }}
               className="rounded-full block transition-all"
             />
@@ -224,7 +226,7 @@ export async function HeroSlideshow() {
                 width: "12px",
                 backgroundColor: "rgba(255,255,255,0.5)",
                 borderRadius: "9999px",
-                animation: "trHeroDot2 13.5s infinite ease-in-out",
+                animation: "trHeroDot2 45s infinite ease-in-out",
               }}
               className="rounded-full block transition-all"
             />
@@ -234,7 +236,7 @@ export async function HeroSlideshow() {
                 width: "12px",
                 backgroundColor: "rgba(255,255,255,0.5)",
                 borderRadius: "9999px",
-                animation: "trHeroDot3 13.5s infinite ease-in-out",
+                animation: "trHeroDot3 45s infinite ease-in-out",
               }}
               className="rounded-full block transition-all"
             />

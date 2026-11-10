@@ -77,12 +77,6 @@ export interface Dictionary {
     staffPortal: string;
   };
 
-  mobileBar: {
-    whatsapp: string;
-    whatsappGreeting: string;
-    planJourney: string;
-  };
-
   notFound: {
     eyebrow: string;
     title: string;
@@ -830,6 +824,7 @@ export interface Dictionary {
     layout: {
       adminControlCenter: string;
       bookingsDashboard: string;
+      invoices: string;
       fleetAssets: string;
       settings: string;
       signedInAs: string;
@@ -839,8 +834,29 @@ export interface Dictionary {
     login: {
       portalTitle: string;
       portalSubtitle: string;
+      portalBadge: string;
+      backToSite: string;
+      showcaseEyebrow: string;
+      showcaseTag: string;
+      showcaseTitleLine1: string;
+      showcaseTitleLine2: string;
+      showcaseSubtitle: string;
+      showcaseImageAlt: string;
+      showcaseHighlights: {
+        label: string;
+        detail: string;
+      }[];
+      testModeBadge: string;
+      testModeDescription: string;
+      fillDemoBtn: string;
       staffEmail: string;
+      emailPlaceholder: string;
       password: string;
+      passwordHint: string;
+      showPassword: string;
+      hidePassword: string;
+      sessionNote: string;
+      needHelp: string;
       authenticating: string;
       signIn: string;
       devNoteBefore: string;

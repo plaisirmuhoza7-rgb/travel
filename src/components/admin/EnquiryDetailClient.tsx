@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { EnquiryRecord, StatusHistoryItem, EnquiryNoteItem, NotificationLogItem, Vehicle } from "@/lib/seed-data";
+import { EnquiryRecord, StatusHistoryItem, EnquiryNoteItem, NotificationLogItem, Vehicle, InvoiceRecord } from "@/lib/seed-data";
 import { useI18n } from "@/components/i18n/LocaleProvider";
 import { getServiceLabelBySlug } from "@/lib/i18n";
 import { localizeVehicle } from "@/lib/i18n/catalog";
+import { InvoiceModal } from "./InvoiceModal";
 import {
   AlertTriangle,
   RotateCcw,
@@ -13,6 +14,7 @@ import {
   Send,
   UserCheck,
   Car,
+  Receipt,
 } from "lucide-react";
 
 interface Props {
@@ -55,6 +57,28 @@ export function EnquiryDetailClient({
 
   const [isRetryingEmail, setIsRetryingEmail] = useState(false);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
+
+  // Invoice State
+  const [invoiceToView, setInvoiceToView] = useState<InvoiceRecord | null>(null);
+  const [isLoadingInvoice, setIsLoadingInvoice] = useState(false);
+
+  const handleOpenInvoice = async () => {
+    setIsLoadingInvoice(true);
+    try {
+      const res = await fetch("/api/admin/invoices", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enquiryId: enquiry.id, action: "generate" }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to generate invoice");
+      setInvoiceToView(data.invoice);
+    } catch (err: any) {
+      alert("Error generating invoice: " + err.message);
+    } finally {
+      setIsLoadingInvoice(false);
+    }
+  };
 
   // Status Update Handler
   const handleStatusChange = async (e: React.FormEvent) => {
@@ -188,6 +212,32 @@ export function EnquiryDetailClient({
           {actionMessage}
         </div>
       )}
+
+      {/* Official Invoice & Travel Voucher Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-[var(--color-border-subtle)] shadow-xs">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#0F284E] text-[#FACC15]">
+            <Receipt className="h-5 w-5" />
+          </div>
+          <div>
+            <span className="text-[10px] uppercase font-bold text-[#BCA77B] tracking-wider block">
+              Official Tax Invoice & Voucher
+            </span>
+            <span className="text-xs font-semibold text-[#0F284E]">
+              Print or dispatch official verified invoice with Travel Rwanda logo & MoMo Pay
+            </span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleOpenInvoice}
+          disabled={isLoadingInvoice}
+          className="inline-flex items-center gap-1.5 rounded bg-[#0F284E] text-[#F7F6F2] hover:bg-[#061226] px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all shadow-xs shrink-0 disabled:opacity-50"
+        >
+          <Receipt className="h-4 w-4 text-[#FACC15]" />
+          <span>{isLoadingInvoice ? "Generating..." : "Generate / View Official Invoice"}</span>
+        </button>
+      </div>
 
       {/* Main Details Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -620,6 +670,16 @@ export function EnquiryDetailClient({
           ))}
         </div>
       </div>
+
+      {/* INVOICE MODAL */}
+      {invoiceToView && (
+        <InvoiceModal
+          invoice={invoiceToView}
+          isOpen={Boolean(invoiceToView)}
+          onClose={() => setInvoiceToView(null)}
+          onUpdateInvoice={(updated) => setInvoiceToView(updated)}
+        />
+      )}
     </div>
   );
 }

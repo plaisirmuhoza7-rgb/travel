@@ -9,6 +9,9 @@ import {
   StatusHistoryItem,
   EnquiryNoteItem,
   NotificationLogItem,
+  InvoiceRecord,
+  InvoiceLineItem,
+  COMPANY_INVOICE_DETAILS,
   DEFAULT_SITE_SETTINGS,
   SEED_CATEGORIES,
   SEED_SERVICES,
@@ -24,6 +27,7 @@ interface StoreData {
   statusHistory: StatusHistoryItem[];
   notes: EnquiryNoteItem[];
   notifications: NotificationLogItem[];
+  invoices?: InvoiceRecord[];
 }
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -39,6 +43,7 @@ function getInitialData(): StoreData {
     statusHistory: [],
     notes: [],
     notifications: [],
+    invoices: [],
   };
 }
 
@@ -53,7 +58,9 @@ function readStore(): StoreData {
       return initial;
     }
     const raw = fs.readFileSync(STORE_FILE, "utf-8");
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    if (!parsed.invoices) parsed.invoices = [];
+    return parsed;
   } catch (error) {
     console.error("Error reading store file, falling back to memory seed:", error);
     return getInitialData();
@@ -373,5 +380,182 @@ export const repository = {
     data.notifications.push(record);
     writeStore(data);
     return record;
+  },
+
+  // Invoices & Billing
+  getInvoices(filter?: { status?: string; search?: string }): InvoiceRecord[] {
+    const data = readStore();
+    let result = [...(data.invoices || [])].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+
+    if (filter?.status && filter.status !== "all") {
+      result = result.filter((i) => i.status.toLowerCase() === filter.status?.toLowerCase());
+    }
+
+    if (filter?.search) {
+      const q = filter.search.toLowerCase().trim();
+      result = result.filter(
+        (i) =>
+          i.invoiceNumber.toLowerCase().includes(q) ||
+          (i.referenceCode && i.referenceCode.toLowerCase().includes(q)) ||
+          i.clientName.toLowerCase().includes(q) ||
+          i.clientPhone.toLowerCase().includes(q) ||
+          (i.clientEmail && i.clientEmail.toLowerCase().includes(q)) ||
+          (i.clientCompany && i.clientCompany.toLowerCase().includes(q)) ||
+          (i.vehicleName && i.vehicleName.toLowerCase().includes(q))
+      );
+    }
+
+    return result;
+  },
+
+  getInvoiceById(id: string): InvoiceRecord | null {
+    const data = readStore();
+    return (data.invoices || []).find((i) => i.id === id) || null;
+  },
+
+  getInvoiceByNumber(invoiceNumber: string): InvoiceRecord | null {
+    const data = readStore();
+    return (data.invoices || []).find((i) => i.invoiceNumber.toLowerCase() === invoiceNumber.toLowerCase()) || null;
+  },
+
+  getInvoiceByEnquiryId(enquiryId: string): InvoiceRecord | null {
+    const data = readStore();
+    return (data.invoices || []).find((i) => i.enquiryId === enquiryId) || null;
+  },
+
+  saveInvoice(invoice: InvoiceRecord): InvoiceRecord {
+    const data = readStore();
+    if (!data.invoices) data.invoices = [];
+    const index = data.invoices.findIndex((i) => i.id === invoice.id);
+    if (index >= 0) {
+      data.invoices[index] = { ...invoice, updatedAt: new Date().toISOString() };
+    } else {
+      data.invoices.push(invoice);
+    }
+    writeStore(data);
+    return invoice;
+  },
+
+  updateInvoice(id: string, updates: Partial<InvoiceRecord>): InvoiceRecord | null {
+    const data = readStore();
+    if (!data.invoices) data.invoices = [];
+    const index = data.invoices.findIndex((i) => i.id === id);
+    if (index === -1) return null;
+
+    data.invoices[index] = {
+      ...data.invoices[index],
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+    writeStore(data);
+    return data.invoices[index];
+  },
+
+  deleteInvoice(id: string): boolean {
+    const data = readStore();
+    if (!data.invoices) return false;
+    const index = data.invoices.findIndex((i) => i.id === id);
+    if (index === -1) return false;
+
+    data.invoices.splice(index, 1);
+    writeStore(data);
+    return true;
+  },
+
+  generateInvoiceForEnquiry(enquiryId: string, authorEmail = "admin@travelrwanda.rw"): InvoiceRecord | null {
+    const data = readStore();
+    const enquiry = data.enquiries.find((e) => e.id === enquiryId);
+    if (!enquiry) return null;
+
+    if (!data.invoices) data.invoices = [];
+    const existing = data.invoices.find((i) => i.enquiryId === enquiryId);
+    if (existing) return existing;
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const dateStamp = todayStr.replace(/-/g, "");
+    const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
+    const invoiceNumber = `INV-${dateStamp}-${randomSuffix}`;
+
+    // Calculate line items based on service and quote
+    let quantity = 1;
+    if (enquiry.pickupDate && enquiry.returnDate) {
+      const p = new Date(enquiry.pickupDate).getTime();
+      const r = new Date(enquiry.returnDate).getTime();
+      const diff = Math.ceil((r - p) / (1000 * 60 * 60 * 24));
+      if (diff > 0) quantity = diff;
+    }
+
+    const unitPrice = enquiry.quotedPriceRwf
+      ? Math.round(enquiry.quotedPriceRwf / quantity)
+      : (enquiry.serviceType === "airport-transfer" ? 40000 : 85000);
+    const subtotal = quantity * unitPrice;
+
+    const serviceName = enquiry.serviceType
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+
+    const items: InvoiceLineItem[] = [
+      {
+        id: `item-${Date.now()}-1`,
+        description: `${serviceName} - Route: ${enquiry.pickupLocation} to ${enquiry.dropoffLocation || "Kigali Destination"}${
+          enquiry.assignedVehicleName ? ` [Vehicle: ${enquiry.assignedVehicleName}]` : ""
+        }${enquiry.serviceSpecificData?.flightNumber ? ` (Flight: ${enquiry.serviceSpecificData.flightNumber})` : ""}`,
+        quantity,
+        unitPriceRwf: unitPrice,
+        totalRwf: subtotal,
+      },
+    ];
+
+    const invoice: InvoiceRecord = {
+      id: `inv-${Date.now()}-${randomSuffix.toLowerCase()}`,
+      invoiceNumber,
+      enquiryId: enquiry.id,
+      referenceCode: enquiry.referenceCode,
+      issueDate: todayStr,
+      dueDate: enquiry.pickupDate || todayStr,
+      status: enquiry.status === "Completed" ? "Paid" : enquiry.status === "Confirmed" ? "Issued" : "Draft",
+      clientName: enquiry.customerName,
+      clientCompany: (enquiry.serviceSpecificData?.organizationName as string) || null,
+      clientPhone: enquiry.customerPhone,
+      clientEmail: enquiry.customerEmail,
+      clientAddress: enquiry.pickupLocation,
+      clientTin: null,
+      serviceType: enquiry.serviceType,
+      pickupLocation: enquiry.pickupLocation,
+      dropoffLocation: enquiry.dropoffLocation || null,
+      pickupDate: enquiry.pickupDate,
+      pickupTime: enquiry.pickupTime,
+      returnDate: enquiry.returnDate || null,
+      returnTime: enquiry.returnTime || null,
+      vehicleName: enquiry.assignedVehicleName || null,
+      driverName: enquiry.driverName || null,
+      driverPhone: enquiry.driverPhone || null,
+      passengerCount: enquiry.passengerCount,
+      flightNumber: (enquiry.serviceSpecificData?.flightNumber as string) || null,
+      items,
+      subtotalRwf: subtotal,
+      taxRatePercent: 0,
+      taxAmountRwf: 0,
+      discountRwf: 0,
+      totalRwf: subtotal,
+      currency: "RWF",
+      bankName: COMPANY_INVOICE_DETAILS.bankName,
+      bankAccountNumber: COMPANY_INVOICE_DETAILS.bankAccountNumber,
+      bankAccountName: COMPANY_INVOICE_DETAILS.bankAccountName,
+      momoMerchantCode: COMPANY_INVOICE_DETAILS.momoMerchantCode,
+      paymentMethod: "MTN Mobile Money / Bank Transfer",
+      paymentReference: enquiry.referenceCode,
+      notes: enquiry.customerNotes || "Official Transport Reservation Voucher & Tax Invoice. Thank you for choosing Travel Rwanda.",
+      termsAndConditions: COMPANY_INVOICE_DETAILS.defaultTerms,
+      issuedByEmail: authorEmail,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    data.invoices.push(invoice);
+    writeStore(data);
+    return invoice;
   },
 };

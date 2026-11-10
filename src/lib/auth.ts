@@ -20,14 +20,14 @@ export async function getAdminSession(): Promise<AdminUser | null> {
     if (parsed && parsed.email && parsed.exp > Date.now()) {
       return { email: parsed.email, role: "admin" };
     }
-  } catch (err) {
+  } catch {
     return null;
   }
 
   return null;
 }
 
-export async function setAdminSession(email: string) {
+export async function setAdminSession(email: string, secureCookie?: boolean) {
   const cookieStore = await cookies();
   const sessionData = {
     email,
@@ -39,7 +39,7 @@ export async function setAdminSession(email: string) {
 
   cookieStore.set(ADMIN_SESSION_COOKIE, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: secureCookie ?? process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
     maxAge: 60 * 60 * 24 * 7,

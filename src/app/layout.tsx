@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingMobileBar } from "@/components/layout/FloatingMobileBar";
 import { JsonLdSchema } from "@/components/seo/JsonLdSchema";
 import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import { getServerDictionary } from "@/lib/i18n/server";
@@ -73,14 +72,13 @@ export default async function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="flex min-h-screen flex-col bg-[#F8FAFC] text-[#0F172A] font-sans antialiased pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0"
+        className="flex min-h-screen flex-col bg-[#F8FAFC] text-[#0F172A] font-sans antialiased"
       >
         <LocaleProvider initialLocale={locale}>
           <JsonLdSchema locale={locale} />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
-          <FloatingMobileBar />
         </LocaleProvider>
       </body>
     </html>

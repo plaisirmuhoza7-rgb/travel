@@ -3,10 +3,11 @@
 import React, { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { EnquiryRecord, Vehicle, ServiceItem } from "@/lib/seed-data";
+import { EnquiryRecord, Vehicle, ServiceItem, InvoiceRecord } from "@/lib/seed-data";
 import { useI18n } from "@/components/i18n/LocaleProvider";
 import { getServiceLabelBySlug } from "@/lib/i18n";
 import { localizeService, localizeVehicle } from "@/lib/i18n/catalog";
+import { InvoiceModal } from "./InvoiceModal";
 import {
   Car,
   Plane,
@@ -21,6 +22,7 @@ import {
   Search,
   Plus,
   Download,
+  Receipt,
   UserCheck,
   Briefcase,
   Copy,
@@ -92,6 +94,28 @@ export function AdminBookingsDashboard({
   // Quick note modal state
   const [quickNoteText, setQuickNoteText] = useState("");
   const [isSubmittingNote, setIsSubmittingNote] = useState(false);
+
+  // Invoice modal state
+  const [invoiceToView, setInvoiceToView] = useState<InvoiceRecord | null>(null);
+  const [isLoadingInvoice, setIsLoadingInvoice] = useState(false);
+
+  const handleOpenInvoiceForBooking = async (enquiryId: string) => {
+    setIsLoadingInvoice(true);
+    try {
+      const res = await fetch("/api/admin/invoices", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ enquiryId, action: "generate" }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to load invoice");
+      setInvoiceToView(data.invoice);
+    } catch (err: any) {
+      alert("Error loading invoice: " + err.message);
+    } finally {
+      setIsLoadingInvoice(false);
+    }
+  };
 
   // New Booking Modal Form
   const [newBookingData, setNewBookingData] = useState({
@@ -613,6 +637,15 @@ export function AdminBookingsDashboard({
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
+          <Link
+            href="/admin/invoices"
+            className="inline-flex items-center gap-1.5 rounded border border-[#CBD5E1] bg-white px-3.5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0F284E] hover:bg-[#F7F6F2] shadow-xs transition-all"
+            title="Invoices & Billing Hub"
+          >
+            <Receipt className="h-4 w-4 text-[#BCA77B]" />
+            <span>Invoices & Billing</span>
+          </Link>
+
           <button
             onClick={() => setIsNewBookingModalOpen(true)}
             className="inline-flex items-center gap-1.5 rounded bg-[#0B3D2E] px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#F7F6F2] hover:bg-[#06281E] shadow-sm transition-all"
@@ -1197,7 +1230,17 @@ export function AdminBookingsDashboard({
                         <option value="Cancelled">{db.statuses.Cancelled}</option>
                       </select>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => handleOpenInvoiceForBooking(enq.id)}
+                          disabled={isLoadingInvoice}
+                          className="inline-flex items-center gap-1 rounded border border-[#0F284E]/30 bg-white px-2 py-1 text-[11px] font-semibold text-[#0F284E] hover:bg-[#0F284E] hover:text-[#F7F6F2] transition-colors"
+                          title="Generate or view official tax invoice"
+                        >
+                          <Receipt className="h-3 w-3 text-[#BCA77B]" />
+                          <span>Invoice</span>
+                        </button>
+
                         <button
                           onClick={() => {
                             setQuickNoteEnquiry(enq);
@@ -1345,6 +1388,15 @@ export function AdminBookingsDashboard({
                       </td>
 
                       <td className="py-3 px-4 text-right space-x-2">
+                        <button
+                          onClick={() => handleOpenInvoiceForBooking(enq.id)}
+                          className="inline-flex items-center gap-1 rounded bg-[#0F284E]/10 hover:bg-[#0F284E] hover:text-white px-2 py-0.5 text-[11px] font-semibold text-[#0F284E] transition-all"
+                          title="View / Print Tax Invoice"
+                        >
+                          <Receipt className="h-3 w-3 text-[#BCA77B]" />
+                          <span>Invoice</span>
+                        </button>
+
                         <Link
                           href={`/admin/enquiries/${enq.id}`}
                           className="text-[#0B3D2E] hover:text-[#BCA77B] font-semibold underline"
@@ -1989,6 +2041,16 @@ export function AdminBookingsDashboard({
             </form>
           </div>
         </div>
+      )}
+
+      {/* INVOICE MODAL */}
+      {invoiceToView && (
+        <InvoiceModal
+          invoice={invoiceToView}
+          isOpen={Boolean(invoiceToView)}
+          onClose={() => setInvoiceToView(null)}
+          onUpdateInvoice={(updated) => setInvoiceToView(updated)}
+        />
       )}
     </div>
   );

@@ -366,7 +366,7 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION C: QUICK TRIP PLANNER */}
-      <section className="pb-16 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <section className="pb-12 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <CompactTripPlanner vehicles={allPublished} />
       </section>
 

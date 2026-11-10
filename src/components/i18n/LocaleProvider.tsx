@@ -46,7 +46,11 @@ export function LocaleProvider({
   const setLocale = useCallback((nextLocale: Locale) => {
     setLocaleState(nextLocale);
     if (typeof document !== "undefined") {
-      document.cookie = `${LOCALE_COOKIE_NAME}=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
+      const secureFlag =
+        typeof window !== "undefined" && window.location.protocol === "https:"
+          ? "; Secure"
+          : "";
+      document.cookie = `${LOCALE_COOKIE_NAME}=${nextLocale}; path=/; max-age=31536000; SameSite=Lax${secureFlag}`;
       document.documentElement.lang = nextLocale;
     }
   }, []);

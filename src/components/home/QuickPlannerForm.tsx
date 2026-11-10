@@ -690,8 +690,8 @@ export function QuickPlannerForm({ vehicles = [] }: QuickPlannerFormProps) {
             </div>
 
             {(!pickupLocation.trim() || !pickupDate) && (
-              <div className="flex items-start gap-2.5 rounded-xl border border-amber-200 bg-amber-50/70 px-4 py-3 text-xs font-semibold text-amber-900">
-                <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5 rounded-xl border border-[#FACC15] bg-[#FEF9C3]/80 px-4 py-3 text-xs font-semibold text-[#091A34]">
+                <AlertCircle className="h-4 w-4 text-[#0F284E] shrink-0 mt-0.5" />
                 <span>{t.missingDetailsNotice}</span>
               </div>
             )}

@@ -83,13 +83,6 @@ export const fr: Dictionary = {
     staffPortal: "Portail équipe",
   },
 
-  mobileBar: {
-    whatsapp: "WhatsApp",
-    whatsappGreeting:
-      "Bonjour Travel Rwanda, je souhaite me renseigner sur vos transports.",
-    planJourney: "Planifier",
-  },
-
   notFound: {
     eyebrow: "Erreur 404",
     title: "Page introuvable",
@@ -1188,6 +1181,7 @@ export const fr: Dictionary = {
     layout: {
       adminControlCenter: "Centre de contrôle Admin",
       bookingsDashboard: "Tableau des réservations",
+      invoices: "Factures & Devis",
       fleetAssets: "Flotte & Médias",
       settings: "Paramètres",
       signedInAs: "Connecté en tant que :",
@@ -1198,8 +1192,33 @@ export const fr: Dictionary = {
       portalTitle: "Portail équipe Travel Rwanda",
       portalSubtitle:
         "Accès administratif autorisé pour le dispatch des demandes et la gestion de la flotte.",
+      portalBadge: "Centrale Dispatch",
+      backToSite: "Retour au site",
+      showcaseEyebrow: "Dispatch Kigali · 24/7",
+      showcaseTag: "KGL · Parc Flotte",
+      showcaseTitleLine1: "Arrivez en sérénité.",
+      showcaseTitleLine2: "Voyagez avec confort.",
+      showcaseSubtitle:
+        "Coordonnez les accueils à l’aéroport de Kigali, les 4x4 et les réservations exécutives depuis un espace unifié.",
+      showcaseImageAlt:
+        "Chauffeur Travel Rwanda remettant les clés devant un SUV noir de prestige",
+      showcaseHighlights: [
+        { label: "Suivi Demandes", detail: "Réservations & devis en direct" },
+        { label: "Flotte Prête", detail: "Prado TXL · V8 · Coaster" },
+        { label: "Base Opérations", detail: "Kicukiro, Centre de Gahanga" },
+      ],
+      testModeBadge: "Accès test activé",
+      testModeDescription:
+        "Tout e-mail ou mot de passe — même erroné — permet de vous connecter dès maintenant pour vos tests.",
+      fillDemoBtn: "Remplir démo",
       staffEmail: "E-mail équipe",
+      emailPlaceholder: "equipe@travelrwanda.rw",
       password: "Mot de passe",
+      passwordHint: "Libre en mode test",
+      showPassword: "Afficher le mot de passe",
+      hidePassword: "Masquer le mot de passe",
+      sessionNote: "Session équipe chiffrée 7 jours",
+      needHelp: "Besoin d’assistance ?",
       authenticating: "Connexion...",
       signIn: "Se connecter",
       devNoteBefore:
